@@ -13,7 +13,7 @@
             background: #F9FAFB; /* Off-white background */
             color: #2A2A2A; /* Near-black text */
             font-family: 'Inter', sans-serif;
-            line-height: 1.6; /* Adjusted for readability */
+            line-height: 1.6;
             margin: 0;
             overflow-x: hidden;
             letter-spacing: 0.5px;
@@ -38,17 +38,12 @@
             font-size: 1.6rem;
             font-weight: 800;
             color: #FFFFFF;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
             transition: color 0.6s ease-out;
         }
         .navbar-brand:hover {
             color: #F59E0B; /* Luxe gold */
-        }
-        .navbar-brand .logo {
-            height: 40px;
-            margin-right: 10px;
         }
         .navbar-nav {
             display: flex;
@@ -80,7 +75,7 @@
         .hero {
             min-height: 100vh;
             position: relative;
-            background: linear-gradient(135deg, #1A1F2B, #4B5563); /* Deeper charcoal to muted silver */
+            background: linear-gradient(135deg, #1A1F2B, #4B5563, #38BDF8); /* Deeper charcoal to cyber-blue */
             padding-top: 100px; /* Breathing space from navbar */
             display: flex;
             justify-content: center;
@@ -114,13 +109,14 @@
             z-index: 10;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             animation: fadeInUp 1.0s ease-out 0.2s backwards;
+            text-shadow: 0 0 5px rgba(245, 158, 11, 0.2); /* Holographic effect */
         }
         .hero-content h1 {
             font-family: 'Raleway', sans-serif;
             font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 20px;
-            letter-spacing: 1.2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             line-height: 2.0;
             animation: slideIn 1.0s ease-out 0.2s backwards;
@@ -160,12 +156,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, rgba(26, 31, 43, 0.9), rgba(75, 85, 99, 0.7));
+            background: linear-gradient(45deg, rgba(26, 31, 43, 0.95), rgba(75, 85, 99, 0.7), rgba(56, 189, 248, 0.5)); /* Cyber-blue tint */
             z-index: 1;
-            transition: background-position 0.5s ease;
-        }
-        .hero:hover::before {
-            background-position: 50% 50%;
+            animation: gradientShift 10s infinite alternate;
         }
         .carousel-control-prev, .carousel-control-next {
             opacity: 0.4;
@@ -182,13 +175,17 @@
             from { opacity: 0; transform: translateX(-20px); }
             to { opacity: 1; transform: translateX(0); }
         }
+        @keyframes gradientShift {
+            0% { background: linear-gradient(45deg, rgba(26, 31, 43, 0.95), rgba(75, 85, 99, 0.7), rgba(56, 189, 248, 0.5)); }
+            100% { background: linear-gradient(45deg, rgba(75, 85, 99, 0.7), rgba(56, 189, 248, 0.5), rgba(26, 31, 43, 0.95)); }
+        }
 
         /* Sections */
         .section {
-            padding: 140px 0; /* Increased breathing space */
+            padding: 160px 0; /* Increased breathing space */
             background: #F9FAFB;
             text-align: center;
-            margin: 50px 0; /* Consistent spacing */
+            margin: 60px 0; /* Consistent spacing */
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 1.0s ease-out, transform 1.0s ease-out;
@@ -200,7 +197,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px; /* Increased side padding */
+            padding: 0 40px;
         }
         .section h2 {
             font-family: 'Raleway', sans-serif;
@@ -209,7 +206,7 @@
             margin-bottom: 40px;
             color: #2A2A2A;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             line-height: 2.0;
             position: relative;
         }
@@ -233,7 +230,7 @@
             margin: 0 auto 30px;
             color: #2A2A2A;
             font-weight: 500;
-            text-align: left;
+            text-align: center; /* Centered paragraph */
             line-height: 1.6;
         }
 
@@ -244,6 +241,7 @@
             gap: 50px;
             justify-content: center;
             margin-top: 30px;
+            position: relative;
         }
         .team-card {
             background: #F9FAFB;
@@ -254,10 +252,11 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             transition: transform 0.6s ease-out, box-shadow 0.6s ease-out;
             text-decoration: none;
+            position: relative;
         }
         .team-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 15px rgba(245, 158, 11, 0.3); /* Border glow */
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.5); /* Neon-like glow */
         }
         .team-card h3 {
             font-family: 'Raleway', sans-serif;
@@ -276,6 +275,30 @@
             margin: 0;
             text-align: center; /* Centered designation */
         }
+        .team-card .bio-popup {
+            display: none;
+            position: absolute;
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1A1F2B;
+            color: #FFFFFF;
+            padding: 10px 15px;
+            border: 1px solid #F59E0B;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
+            font-size: 0.75rem;
+            white-space: nowrap;
+            z-index: 100;
+            animation: fadeIn 0.4s ease-out;
+        }
+        .team-card:hover .bio-popup {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
         /* Portfolio Section */
         .portfolio-container {
@@ -284,6 +307,9 @@
             gap: 50px;
             justify-content: center;
             margin-top: 30px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .portfolio-card {
             background: #F9FAFB;
@@ -297,7 +323,7 @@
         }
         .portfolio-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 15px rgba(245, 158, 11, 0.3); /* Border glow */
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.5); /* Neon-like glow */
         }
         .portfolio-card span {
             font-family: 'Raleway', sans-serif;
@@ -409,7 +435,7 @@
             transition: color 0.6s ease-out, transform 0.6s ease-out;
         }
         .social-links a:hover {
-            color: #FFFFFF;
+            color: #38BDF8; /* Cyber-blue */
             transform: scale(1.2);
         }
 
@@ -437,8 +463,18 @@
             opacity: 1;
         }
         .scroll-top:hover {
-            background: #D97706; /* Darker gold */
+            background: #38BDF8; /* Cyber-blue */
             transform: scale(1.1);
+        }
+
+        /* Particle Effect for Futuristic Vibe */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
         }
 
         /* Media Queries for Responsiveness */
@@ -447,7 +483,7 @@
                 padding-top: 80px;
             }
             .hero-content {
-                max-width: 90%;
+                max-width: 85%;
                 padding: 40px 20px;
             }
             .hero-content h1 {
@@ -476,10 +512,15 @@
                 bottom: 10px;
                 right: 10px;
             }
+            .team-card .bio-popup {
+                top: -70px;
+                white-space: normal;
+                width: 200px;
+            }
         }
         @media (max-width: 480px) {
             .hero-content {
-                max-width: 95%;
+                max-width: 90%;
             }
             .hero-content h1 {
                 font-size: 1.6rem;
@@ -490,15 +531,17 @@
             .query-box {
                 padding: 20px;
             }
+            .team-card .bio-popup {
+                top: -60px;
+                width: 180px;
+            }
         }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="your-logo.png" alt="AIVC Logo" class="logo"> AIVC
-            </a>
+            <a class="navbar-brand" href="#">AIVC - Early Stage AI VC</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -515,11 +558,12 @@
     </nav>
 
     <div class="hero" id="home">
+        <div id="particles-js"></div>
         <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="hero-content">
-                        <h1>Investing in the Future of AI</h1>
+                        <h1>Investing in Future AI Applications</h1>
                         <p>Empowering startups to redefine industries with cutting-edge technology.</p>
                         <a href="#contact" class="btn btn-custom"><i class="fas fa-arrow-right"></i> Get Started</a>
                     </div>
@@ -592,14 +636,17 @@
                 <a href="https://www.linkedin.com/in/amit-behl-a80329/" target="_blank" class="team-card">
                     <h3>Amit Behl</h3>
                     <p>Partner</p>
+                    <div class="bio-popup">A career VC with 20+ years of investing experience and several IPO exits.</div>
                 </a>
                 <a href="https://www.linkedin.com/in/abhay-kumar-sahoo-546748155/" target="_blank" class="team-card">
                     <h3>Abhay Kumar Sahoo</h3>
                     <p>Investment Team Member</p>
+                    <div class="bio-popup">An engineer by education, loves evaluating technology and businesses.</div>
                 </a>
                 <a href="https://www.linkedin.com/in/saanidhya-232874225/" target="_blank" class="team-card">
                     <h3>Saanidhya</h3>
                     <p>Investment Team Member</p>
+                    <div class="bio-popup">An avid learner of new age tech and emerging trends.</div>
                 </a>
             </div>
         </div>
@@ -640,6 +687,7 @@
     <button class="scroll-top" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
         // Navbar Scroll Opacity
         window.addEventListener('scroll', () => {
@@ -679,11 +727,23 @@
             observer.observe(section);
         });
 
-        // Parallax Effect for Hero
-        window.addEventListener('scroll', () => {
-            const scrollPosition = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            hero.style.backgroundPositionY = `${-scrollPosition * 0.3}px`;
+        // Particle Effect Initialization
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: ['#FFFFFF', '#38BDF8', '#F59E0B'] },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1 } },
+                size: { value: 3, random: true, anim: { enable: false } },
+                line_linked: { enable: false },
+                move: { enable: true, speed: 2, direction: 'none', random: true, straight: false, out_mode: 'out' }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: { onhover: { enable: false }, onclick: { enable: false } },
+                modes: { grab: { distance: 400, line_linked: { opacity: 0.5 } } }
+            },
+            retina_detect: true
         });
 
         // Query Form Submission Feedback
