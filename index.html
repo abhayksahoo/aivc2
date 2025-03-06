@@ -11,24 +11,26 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0A0A0A;
-            color: #FFFFFF;
+            background-color: #F5F5F5;
+            color: #333;
         }
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            background: #111;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
         .logo {
             font-size: 24px;
             font-weight: bold;
-            color: #FFD700;
+            color: #000;
         }
         nav ul {
             list-style: none;
@@ -36,13 +38,13 @@
             gap: 20px;
         }
         nav ul li a {
-            color: #FFFFFF;
+            color: #333;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s;
         }
         nav ul li a:hover {
-            color: #FFD700;
+            color: #666;
         }
         .hero {
             height: 100vh;
@@ -52,16 +54,32 @@
             align-items: center;
             text-align: center;
             background: url('https://source.unsplash.com/1600x900/?technology,finance') no-repeat center center/cover;
+            position: relative;
+        }
+        .carousel {
+            width: 100%;
+            overflow: hidden;
+        }
+        .carousel img {
+            width: 100%;
+            display: block;
+            animation: fade 8s infinite;
+        }
+        @keyframes fade {
+            0% {opacity: 0;}
+            20% {opacity: 1;}
+            80% {opacity: 1;}
+            100% {opacity: 0;}
         }
         .hero h1 {
             font-size: 48px;
-            color: #FFD700;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            color: #000;
+            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8);
         }
         .cta-button {
             padding: 12px 24px;
-            background: #FFD700;
-            color: #0A0A0A;
+            background: #333;
+            color: #FFF;
             font-weight: bold;
             border: none;
             cursor: pointer;
@@ -70,7 +88,7 @@
             transition: background 0.3s;
         }
         .cta-button:hover {
-            background: #FFC107;
+            background: #666;
         }
         .grid {
             display: flex;
@@ -79,7 +97,8 @@
             justify-content: center;
         }
         .portfolio-item, .team-member {
-            background: #222;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             padding: 20px;
             border-radius: 10px;
             text-align: center;
@@ -92,7 +111,7 @@
         footer {
             text-align: center;
             padding: 20px;
-            background: #111;
+            background: rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
@@ -110,6 +129,9 @@
     </header>
 
     <section class="hero">
+        <div class="carousel">
+            <img src="https://source.unsplash.com/1600x900/?ai,startup" alt="AI Startup">
+        </div>
         <h1>Investing in the Future of AI</h1>
         <p>Backing groundbreaking AI startups with vision and scale.</p>
         <a href="#contact" class="cta-button">Get in Touch</a>
@@ -132,15 +154,16 @@
     <section id="team" class="team">
         <h2>Meet Our Team</h2>
         <div class="grid">
-            <div class="team-member">John Doe</div>
-            <div class="team-member">Jane Smith</div>
-            <div class="team-member">Michael Lee</div>
+            <div class="team-member">Amit Behl (Partner)</div>
+            <div class="team-member">Abhay Kumar Sahoo (Investment Team)</div>
+            <div class="team-member">Saanidhya (Investment Team)</div>
         </div>
     </section>
 
     <section id="contact" class="contact">
         <h2>Contact Us</h2>
         <p>Let's discuss the future of AI together.</p>
+        <p>Office: Sector 132, Noida</p>
         <a href="mailto:contact@aivc.com" class="cta-button">Email Us</a>
     </section>
 
