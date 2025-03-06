@@ -13,9 +13,10 @@
             background: #F5F5F5; /* Light grey background */
             color: #1A2A44; /* Navy text */
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            line-height: 1.7; /* Increased line spacing */
             margin: 0;
             overflow-x: hidden;
+            letter-spacing: 0.5px; /* Consistent letter spacing */
         }
 
         /* Navbar */
@@ -33,32 +34,40 @@
             font-weight: 800;
             color: #FFFFFF; /* White text */
             letter-spacing: 1px;
+            display: flex;
+            align-items: center;
             transition: color 0.3s ease, transform 0.3s ease;
         }
         .navbar-brand:hover {
             color: #00C1B2; /* Teal on hover */
             transform: scale(1.05);
         }
+        .navbar-brand .tagline {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #00C1B2; /* Teal tagline */
+            margin-left: 10px;
+        }
         .navbar-nav .nav-link {
             color: #FFFFFF; /* White text */
             font-size: 0.9rem;
             font-weight: 600;
-            padding: 10px 20px;
+            padding: 15px 25px; /* Increased spacing */
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            transition: background 0.4s ease, color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
         }
         .navbar-nav .nav-link:hover {
             background: #FFFFFF; /* White background on hover */
             color: #00C1B2; /* Teal text on hover */
             transform: translateY(-2px);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Glow effect */
+            box-shadow: 0 0 10px rgba(0, 193, 178, 0.3); /* Subtle teal glow */
             border-radius: 5px;
         }
         .navbar-nav .nav-link i {
             margin-right: 5px;
             color: #FFFFFF; /* White icons */
-            transition: color 0.3s ease;
+            transition: color 0.4s ease;
         }
         .navbar-nav .nav-link:hover i {
             color: #00C1B2; /* Teal icons on hover */
@@ -68,14 +77,14 @@
         .hero {
             min-height: 100vh;
             position: relative;
-            background: linear-gradient(135deg, #F5F5F5, #FFFFFF); /* Light grey to white gradient */
+            background: linear-gradient(135deg, #F5F5F5, #FFFFFF); /* Light grey to white */
             padding-top: 80px;
         }
         .carousel-fade .carousel-item {
             height: 100vh;
             opacity: 0;
-            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-            background: linear-gradient(135deg, rgba(26, 42, 68, 0.7), rgba(0, 193, 178, 0.5)); /* Dark navy to teal gradient */
+            transition: opacity 1.1s ease-out, transform 1.1s ease-out; /* Smoother transition */
+            background: linear-gradient(135deg, rgba(26, 42, 68, 0.7), rgba(0, 193, 178, 0.5));
             transform: scale(0.98);
         }
         .carousel-fade .carousel-item.active {
@@ -89,20 +98,21 @@
             text-align: center;
         }
         .hero-content {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(245, 245, 245, 0.1));
-            backdrop-filter: blur(25px);
-            padding: 40px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(245, 245, 245, 0.1));
+            backdrop-filter: blur(30px); /* Enhanced glass effect */
+            padding: 30px; /* Reduced padding */
             border-radius: 15px;
             border: 1px solid rgba(26, 42, 68, 0.3);
-            max-width: 600px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(245, 246, 245, 0.3);
+            max-width: 500px; /* Reduced size */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2), inset 0 0 15px rgba(245, 246, 245, 0.3);
             position: relative;
             overflow: hidden;
             z-index: 10;
             transition: transform 0.3s ease;
         }
         .hero-content:hover {
-            transform: scale(1.02);
+            transform: scale(1.02); /* Subtle bounce */
+            box-shadow: 0 0 15px rgba(0, 193, 178, 0.2); /* Glow on hover */
         }
         .hero-content::before {
             content: '';
@@ -111,14 +121,14 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(0, 193, 178, 0.2) 0%, transparent 70%); /* Teal reflection */
+            background: radial-gradient(circle, rgba(0, 193, 178, 0.2) 0%, transparent 70%);
             transform: rotate(45deg);
             pointer-events: none;
             z-index: -1;
             animation: shine 6s infinite ease-in-out;
         }
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem; /* Standardized size */
             font-weight: 800;
             margin-bottom: 15px;
             letter-spacing: 1.2px;
@@ -127,9 +137,9 @@
             text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
         }
         .hero p {
-            font-size: 1rem;
-            margin-bottom: 25px;
-            color: #1A2A44; /* Navy text */
+            font-size: 0.95rem; /* Standardized size */
+            margin-bottom: 20px;
+            color: #2E4057; /* Lighter navy */
             font-weight: 400;
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
@@ -137,20 +147,20 @@
             background: #00C1B2; /* Teal button */
             color: #FFFFFF; /* White text */
             padding: 12px 35px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             border: none;
             border-radius: 5px;
             text-transform: uppercase;
-            transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            transition: background 0.4s ease, transform 0.4s ease-out, box-shadow 0.4s ease;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         .btn-custom:hover {
             background: #1A2A44; /* Navy on hover */
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(0, 193, 178, 0.6); /* Teal shadow */
+            transform: scale(1.05); /* Bounce effect */
+            box-shadow: 0 8px 25px rgba(0, 193, 178, 0.6);
         }
         .btn-custom i {
             margin-right: 8px;
@@ -170,7 +180,7 @@
             text-align: center;
         }
         .section h2 {
-            font-size: 2rem;
+            font-size: 1.8rem; /* Standardized size */
             font-weight: 800;
             margin-bottom: 40px;
             color: #1A2A44; /* Navy text */
@@ -194,36 +204,38 @@
             transform: translateX(-50%);
         }
         .section p {
-            font-size: 1rem;
+            font-size: 0.95rem; /* Standardized size */
             max-width: 900px;
             margin: 0 auto 30px;
             color: #1A2A44; /* Navy text */
             font-weight: 400;
+            text-align: left; /* Left alignment for paragraphs */
         }
 
         /* Team Section */
         .team-container {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 40px; /* Increased gap */
             flex-wrap: wrap;
             margin-top: 30px;
         }
         .team-card {
-            background: linear-gradient(135deg, rgba(245, 245, 245, 0.2), rgba(211, 211, 211, 0.1));
-            backdrop-filter: blur(15px);
+            background: linear-gradient(135deg, rgba(245, 245, 245, 0.15), rgba(211, 211, 211, 0.1));
+            backdrop-filter: blur(30px); /* Enhanced glass effect */
             border: 1px solid rgba(26, 42, 68, 0.2);
             border-radius: 15px;
             padding: 20px;
-            width: 250px;
+            width: 200px; /* Reduced width */
             text-align: center;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: block;
+            text-decoration: none; /* Ensure no underline */
         }
         .team-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 193, 178, 0.4); /* Teal shadow */
+            box-shadow: 0 0 15px rgba(0, 193, 178, 0.2); /* Glow on hover */
         }
         .team-card h3 a {
             font-size: 1.2rem;
@@ -246,23 +258,24 @@
         .portfolio-container {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 40px; /* Increased gap */
             flex-wrap: wrap;
             margin-top: 30px;
         }
         .portfolio-card {
-            background: linear-gradient(135deg, rgba(245, 245, 245, 0.2), rgba(211, 211, 211, 0.1));
-            backdrop-filter: blur(15px);
+            background: linear-gradient(135deg, rgba(245, 245, 245, 0.15), rgba(211, 211, 211, 0.1));
+            backdrop-filter: blur(30px); /* Enhanced glass effect */
             border: 1px solid rgba(26, 42, 68, 0.2);
             border-radius: 15px;
             padding: 20px;
-            width: 200px;
+            width: 180px; /* Reduced width */
             text-align: center;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
             position: relative;
             overflow: hidden;
             display: block;
+            text-decoration: none; /* Ensure no underline */
         }
         .portfolio-card::before {
             content: '';
@@ -280,8 +293,7 @@
         }
         .portfolio-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 193, 178, 0.4); /* Teal shadow */
-            background: linear-gradient(135deg, rgba(245, 245, 245, 0.3), rgba(211, 211, 211, 0.2));
+            box-shadow: 0 0 15px rgba(0, 193, 178, 0.2); /* Glow on hover */
         }
         .portfolio-card a {
             font-size: 1.1rem;
@@ -297,13 +309,13 @@
 
         /* Contact Section */
         .address {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #1A2A44; /* Navy text */
             margin: 20px 0;
         }
         .query-box {
-            background: linear-gradient(135deg, rgba(245, 245, 245, 0.2), rgba(211, 211, 211, 0.1));
-            backdrop-filter: blur(15px);
+            background: linear-gradient(135deg, rgba(245, 245, 245, 0.15), rgba(211, 211, 211, 0.1));
+            backdrop-filter: blur(30px); /* Enhanced glass effect */
             border: 1px solid rgba(26, 42, 68, 0.2);
             border-radius: 15px;
             padding: 30px;
@@ -312,40 +324,51 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
         .query-box label {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             color: #1A2A44; /* Navy text */
-            margin-bottom: 5px;
+            margin-bottom: 10px; /* Increased spacing */
             display: block;
         }
         .query-box input, .query-box textarea {
             width: 100%;
-            padding: 10px;
+            padding: 12px; /* Increased padding */
             margin-bottom: 15px;
             border: 1px solid #00C1B2; /* Teal border */
             border-radius: 5px;
             font-size: 0.9rem;
             color: #1A2A44; /* Navy text */
             background: #FFFFFF;
+            transition: border-color 0.3s ease;
+        }
+        .query-box input:focus, .query-box textarea:focus {
+            border-color: #1A2A44; /* Navy on focus */
+            outline: none;
         }
         .query-box textarea {
             height: 100px;
             resize: none;
         }
         .query-box button {
-            background: #00C1B2; /* Teal button */
+            background: #1A2A44; /* Navy button */
             color: #FFFFFF; /* White text */
-            padding: 10px 20px;
-            font-size: 1rem;
+            padding: 12px 20px;
+            font-size: 0.95rem;
             font-weight: 600;
             border: none;
             border-radius: 5px;
             transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
         .query-box button:hover {
-            background: #1A2A44; /* Navy on hover */
+            background: #00C1B2; /* Teal on hover */
             transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(0, 193, 178, 0.4); /* Teal shadow */
+            box-shadow: 0 8px 25px rgba(0, 193, 178, 0.4);
+        }
+        .query-box .success-message {
+            display: none;
+            color: #00C1B2; /* Teal success */
+            font-size: 0.9rem;
+            margin-top: 10px;
         }
 
         /* Footer */
@@ -358,8 +381,46 @@
             box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
         }
         footer p {
-            margin: 0;
+            margin: 0 0 15px 0;
             font-weight: 400;
+        }
+        .social-links a {
+            color: #00C1B2; /* Teal links */
+            margin: 0 10px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-links a:hover {
+            color: #FFFFFF; /* White on hover */
+            transform: scale(1.2);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #00C1B2; /* Teal button */
+            color: #FFFFFF; /* White text */
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 193, 178, 0.3);
+        }
+        .scroll-top.show {
+            opacity: 1;
+        }
+        .scroll-top:hover {
+            background: #1A2A44; /* Navy on hover */
+            transform: scale(1.1);
         }
 
         /* Links */
@@ -380,15 +441,41 @@
             100% { transform: rotate(45deg) translate(-20%, -20%); }
         }
 
-        /* Media Queries for Mobile Responsiveness */
+        /* Media Queries for Responsiveness */
         @media (max-width: 768px) {
             .hero-content {
                 max-width: 90%;
-                padding: 30px;
+                padding: 20px;
             }
             .team-card, .portfolio-card {
                 width: 100%;
-                margin-bottom: 20px;
+                margin-bottom: 15px;
+            }
+            .section {
+                padding: 60px 0;
+            }
+            .navbar-nav .nav-link {
+                padding: 10px 15px;
+            }
+            .query-box {
+                padding: 20px;
+            }
+            .scroll-top {
+                bottom: 10px;
+                right: 10px;
+                width: 35px;
+                height: 35px;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-content {
+                max-width: 95%;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .section h2 {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -396,7 +483,10 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">AIVC</a>
+            <a class="navbar-brand" href="#">
+                <span>AIVC</span>
+                <span class="tagline">Empowering AI Innovation</span>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -525,7 +615,7 @@
                 <p><i class="fas fa-map-marker-alt"></i> Office Address: Sector 132, Noida, Uttar Pradesh, India</p>
             </div>
             <div class="query-box">
-                <form action="#" method="post">
+                <form id="queryForm" action="https://formspree.io/f/your-id" method="post"> <!-- Placeholder, replace with your Formspree ID -->
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" placeholder="Your Name" required>
                     <label for="email">Email</label>
@@ -533,6 +623,7 @@
                     <label for="query">Your Query</label>
                     <textarea id="query" name="query" placeholder="Type your message here" required></textarea>
                     <button type="submit"><i class="fas fa-paper-plane"></i> Send Query</button>
+                    <div class="success-message">Thank you, we’ll get back to you!</div>
                 </form>
             </div>
         </div>
@@ -541,9 +632,49 @@
     <footer>
         <div class="container">
             <p><i class="fas fa-copyright"></i> © 2025 AIVC. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
         </div>
     </footer>
 
+    <button class="scroll-top" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Scroll to Top Functionality
+        window.addEventListener('scroll', () => {
+            const scrollTopBtn = document.querySelector('.scroll-top');
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Query Form Submission Feedback
+        document.getElementById('queryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = this;
+            const successMessage = document.querySelector('.success-message');
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+            }).then(() => {
+                form.reset();
+                successMessage.style.display = 'block';
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 3000);
+            }).catch(() => {
+                alert('An error occurred. Please try again.');
+            });
+        });
+    </script>
 </body>
 </html>
