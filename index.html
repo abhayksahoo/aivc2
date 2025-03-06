@@ -21,7 +21,7 @@
 
         /* Navbar */
         .navbar {
-            background: #1A1F2B; /* Deeper charcoal */
+            background: #0F1419; /* Deeper charcoal */
             padding: 30px 0;
             position: fixed;
             width: 100%;
@@ -35,14 +35,25 @@
         }
         .navbar-brand {
             font-family: 'Raleway', sans-serif;
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transition: color 0.8s ease-out;
+        }
+        .navbar-brand span.main {
             font-size: 1.6rem;
             font-weight: 800;
-            color: #FFFFFF;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            transition: color 0.6s ease-out;
         }
-        .navbar-brand:hover {
+        .navbar-brand span.desc {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #9CA3AF; /* Muted silver */
+            margin-top: 5px;
+        }
+        .navbar-brand:hover span.main {
             color: #F59E0B; /* Luxe gold */
         }
         .navbar-nav {
@@ -56,7 +67,7 @@
             font-weight: 500;
             padding: 5px 15px;
             text-transform: uppercase;
-            transition: color 0.6s ease-out, border 0.6s ease-out;
+            transition: color 0.8s ease-out, border 0.8s ease-out;
         }
         .navbar-nav .nav-link:hover {
             color: #F59E0B; /* Luxe gold */
@@ -65,7 +76,7 @@
         .navbar-nav .nav-link i {
             margin-right: 5px;
             color: #FFFFFF;
-            transition: color 0.6s ease-out;
+            transition: color 0.8s ease-out;
         }
         .navbar-nav .nav-link:hover i {
             color: #F59E0B;
@@ -75,12 +86,20 @@
         .hero {
             min-height: 100vh;
             position: relative;
-            background: linear-gradient(135deg, #1A1F2B, #4B5563, #38BDF8); /* Deeper charcoal to cyber-blue */
-            padding-top: 100px; /* Breathing space from navbar */
+            background: linear-gradient(135deg, #0A1C2B, #1E88E5); /* Deep navy to muted cyber-blue */
+            padding-top: 120px; /* Breathing space from navbar */
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
         }
         #heroCarousel {
             width: 100%;
@@ -99,66 +118,59 @@
         }
         .hero-content {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(209, 213, 219, 0.1));
-            backdrop-filter: blur(20px); /* Enhanced glassmorphism */
-            padding: 80px 40px; /* Increased breathing space */
+            backdrop-filter: blur(20px);
+            padding: 100px 50px;
             border-radius: 15px;
-            border: 1px solid rgba(209, 213, 219, 0.5); /* Muted silver */
-            max-width: 450px;
+            border: 1px solid rgba(209, 213, 219, 0.5);
+            max-width: 500px;
             color: #FFFFFF;
             position: relative;
             z-index: 10;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            animation: fadeInUp 1.0s ease-out 0.2s backwards;
-            text-shadow: 0 0 5px rgba(245, 158, 11, 0.2); /* Holographic effect */
+            box-shadow: 0 0 20px rgba(30, 136, 229, 0.4);
+            transition: box-shadow 0.8s ease-out;
+            text-shadow: 0 0 5px rgba(245, 158, 11, 0.2);
+        }
+        .hero-content:hover {
+            box-shadow: 0 0 30px rgba(30, 136, 229, 0.6);
         }
         .hero-content h1 {
             font-family: 'Raleway', sans-serif;
             font-size: 2.5rem;
             font-weight: 800;
-            margin-bottom: 20px;
-            letter-spacing: 1.5px;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             line-height: 2.0;
             animation: slideIn 1.0s ease-out 0.2s backwards;
         }
         .hero-content p {
             font-size: 0.95rem;
-            margin-bottom: 25px;
-            color: #9CA3AF; /* Muted silver */
+            margin-bottom: 30px;
+            color: #9CA3AF;
             line-height: 1.6;
         }
         .btn-custom {
-            background: #F59E0B; /* Luxe gold */
-            color: #1A1F2B; /* Deeper charcoal */
+            background: #F59E0B;
+            color: #0A1C2B;
             padding: 12px 35px;
             font-size: 0.95rem;
             font-weight: 600;
             border: none;
             border-radius: 5px;
             text-transform: uppercase;
-            transition: background 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.6s ease-out;
+            transition: background 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.8s ease-out;
             display: flex;
             align-items: center;
             justify-content: center;
+            animation: pulse 2s infinite;
         }
         .btn-custom:hover {
-            background: #D97706; /* Darker gold */
+            background: #1E88E5;
             transform: scale(1.03);
-            box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+            box-shadow: 0 0 15px rgba(30, 136, 229, 0.5);
         }
         .btn-custom i {
             margin-right: 8px;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(26, 31, 43, 0.95), rgba(75, 85, 99, 0.7), rgba(56, 189, 248, 0.5)); /* Cyber-blue tint */
-            z-index: 1;
-            animation: gradientShift 10s infinite alternate;
         }
         .carousel-control-prev, .carousel-control-next {
             opacity: 0.4;
@@ -167,25 +179,22 @@
         .carousel-control-prev:hover, .carousel-control-next:hover {
             opacity: 1;
         }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
         @keyframes slideIn {
             from { opacity: 0; transform: translateX(-20px); }
             to { opacity: 1; transform: translateX(0); }
         }
-        @keyframes gradientShift {
-            0% { background: linear-gradient(45deg, rgba(26, 31, 43, 0.95), rgba(75, 85, 99, 0.7), rgba(56, 189, 248, 0.5)); }
-            100% { background: linear-gradient(45deg, rgba(75, 85, 99, 0.7), rgba(56, 189, 248, 0.5), rgba(26, 31, 43, 0.95)); }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 rgba(245, 158, 11, 0.4); }
+            50% { box-shadow: 0 0 10px rgba(245, 158, 11, 0.6); }
+            100% { box-shadow: 0 0 0 rgba(245, 158, 11, 0.4); }
         }
 
         /* Sections */
         .section {
-            padding: 160px 0; /* Increased breathing space */
+            padding: 160px 0;
             background: #F9FAFB;
             text-align: center;
-            margin: 60px 0; /* Consistent spacing */
+            margin: 60px 0;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 1.0s ease-out, transform 1.0s ease-out;
@@ -209,16 +218,17 @@
             letter-spacing: 1.5px;
             line-height: 2.0;
             position: relative;
+            text-shadow: 0 0 5px rgba(245, 158, 11, 0.2);
         }
         .section h2 i {
             margin-right: 10px;
-            color: #F59E0B; /* Luxe gold */
+            color: #F59E0B;
         }
         .section h2::after {
             content: '';
             width: 60px;
             height: 2px;
-            background: #F59E0B; /* Luxe gold */
+            background: #F59E0B;
             position: absolute;
             bottom: -10px;
             left: 50%;
@@ -230,74 +240,8 @@
             margin: 0 auto 30px;
             color: #2A2A2A;
             font-weight: 500;
-            text-align: center; /* Centered paragraph */
-            line-height: 1.6;
-        }
-
-        /* Team Section */
-        .team-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 50px;
-            justify-content: center;
-            margin-top: 30px;
-            position: relative;
-        }
-        .team-card {
-            background: #F9FAFB;
-            border: 1px solid #E5E7EB;
-            border-radius: 10px;
-            padding: 20px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: transform 0.6s ease-out, box-shadow 0.6s ease-out;
-            text-decoration: none;
-            position: relative;
-        }
-        .team-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 15px rgba(245, 158, 11, 0.5); /* Neon-like glow */
-        }
-        .team-card h3 {
-            font-family: 'Raleway', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #2A2A2A;
-            margin-bottom: 10px;
-            transition: color 0.6s ease-out;
-        }
-        .team-card:hover h3 {
-            color: #F59E0B; /* Luxe gold */
-        }
-        .team-card p {
-            font-size: 0.8rem;
-            color: #9CA3AF; /* Muted silver */
-            margin: 0;
-            text-align: center; /* Centered designation */
-        }
-        .team-card .bio-popup {
-            display: none;
-            position: absolute;
-            top: -80px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #1A1F2B;
-            color: #FFFFFF;
-            padding: 10px 15px;
-            border: 1px solid #F59E0B;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
-            font-size: 0.75rem;
-            white-space: nowrap;
-            z-index: 100;
-            animation: fadeIn 0.4s ease-out;
-        }
-        .team-card:hover .bio-popup {
-            display: block;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            line-height: 1.6;
         }
 
         /* Portfolio Section */
@@ -318,22 +262,99 @@
             padding: 20px;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: transform 0.6s ease-out, box-shadow 0.6s ease-out;
+            transition: transform 0.8s ease-out, box-shadow 0.8s ease-out, opacity 0.8s ease-out;
             text-decoration: none;
         }
         .portfolio-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 15px rgba(245, 158, 11, 0.5); /* Neon-like glow */
+            box-shadow: 0 0 15px rgba(30, 136, 229, 0.5);
+            background: linear-gradient(135deg, #1E88E5, #F59E0B);
+            color: #FFFFFF;
         }
         .portfolio-card span {
             font-family: 'Raleway', sans-serif;
             font-size: 1.1rem;
             font-weight: 600;
             color: #2A2A2A;
-            transition: color 0.6s ease-out;
+            transition: color 0.8s ease-out;
         }
-        .portfolio-card:hover span {
-            color: #F59E0B; /* Luxe gold */
+        .portfolio-container .portfolio-card:hover ~ .portfolio-card {
+            opacity: 0.4;
+        }
+        .portfolio-container .portfolio-card:hover span {
+            color: #FFFFFF;
+        }
+
+        /* Team Section */
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 50px;
+            justify-content: center;
+            margin-top: 30px;
+            position: relative;
+        }
+        .team-card {
+            background: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.8s ease-out, box-shadow 0.8s ease-out;
+            text-decoration: none;
+            position: relative;
+        }
+        .team-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(30, 136, 229, 0.5);
+        }
+        .team-card h3 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2A2A2A;
+            margin-bottom: 10px;
+            transition: color 0.8s ease-out;
+        }
+        .team-card:hover h3 {
+            color: #F59E0B;
+        }
+        .team-card p {
+            font-size: 0.8rem;
+            color: #9CA3AF;
+            margin: 0;
+            text-align: center;
+        }
+        .team-card .bio-popup {
+            display: none;
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #0A1C2B, #1E88E5);
+            color: #FFFFFF;
+            padding: 15px;
+            border: 2px solid #F59E0B;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(30, 136, 229, 0.3);
+            font-size: 0.8rem;
+            width: 250px;
+            min-height: 80px;
+            z-index: 100;
+            animation: fadeIn 0.4s ease-out, pulseBorder 2s infinite;
+        }
+        .team-card:hover .bio-popup {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes pulseBorder {
+            0% { box-shadow: 0 0 5px #F59E0B; }
+            50% { box-shadow: 0 0 15px #F59E0B; }
+            100% { box-shadow: 0 0 5px #F59E0B; }
         }
 
         /* Contact Section */
@@ -351,10 +372,10 @@
         }
         .query-box {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(209, 213, 219, 0.1));
-            backdrop-filter: blur(20px); /* Enhanced glassmorphism */
-            border: 1px solid #D1D5DB; /* Muted silver */
+            backdrop-filter: blur(20px);
+            border: 1px solid #D1D5DB;
             border-radius: 15px;
-            padding: 40px; /* Increased breathing space */
+            padding: 40px;
             max-width: 500px;
             margin: 30px auto;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -371,15 +392,15 @@
             width: 100%;
             padding: 12px;
             margin-bottom: 15px;
-            border: 1px solid #D1D5DB; /* Muted silver */
+            border: 1px solid #D1D5DB;
             border-radius: 5px;
             font-size: 0.95rem;
             color: #2A2A2A;
             background: #FFFFFF;
-            transition: border-color 0.6s ease-out;
+            transition: border-color 0.8s ease-out;
         }
         .query-box input:focus, .query-box textarea:focus {
-            border-color: #F59E0B; /* Luxe gold */
+            border-color: #F59E0B;
             outline: none;
         }
         .query-box textarea {
@@ -387,33 +408,33 @@
             resize: none;
         }
         .query-box input::placeholder, .query-box textarea::placeholder {
-            color: #9CA3AF; /* Muted silver */
+            color: #9CA3AF;
         }
         .query-box button {
-            background: #F59E0B; /* Luxe gold */
-            color: #1A1F2B; /* Deeper charcoal */
+            background: #F59E0B;
+            color: #0A1C2B;
             padding: 12px 20px;
             font-size: 0.95rem;
             font-weight: 600;
             border: none;
             border-radius: 5px;
-            transition: background 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.6s ease-out;
+            transition: background 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.8s ease-out;
         }
         .query-box button:hover {
-            background: #D97706; /* Darker gold */
+            background: #1E88E5;
             transform: scale(1.03);
-            box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+            box-shadow: 0 0 15px rgba(30, 136, 229, 0.5);
         }
         .query-box .success-message {
             display: none;
-            color: #F59E0B; /* Luxe gold */
+            color: #F59E0B;
             font-size: 0.95rem;
             margin-top: 15px;
         }
 
         /* Footer */
         footer {
-            background: #1A1F2B; /* Deeper charcoal */
+            background: #0A1C2B; /* Deep navy */
             color: #FFFFFF;
             padding: 50px 0;
             text-align: center;
@@ -430,12 +451,12 @@
             gap: 20px;
         }
         .social-links a {
-            color: #F59E0B; /* Luxe gold */
+            color: #F59E0B;
             font-size: 1.2rem;
-            transition: color 0.6s ease-out, transform 0.6s ease-out;
+            transition: color 0.8s ease-out, transform 0.8s ease-out;
         }
         .social-links a:hover {
-            color: #38BDF8; /* Cyber-blue */
+            color: #1E88E5;
             transform: scale(1.2);
         }
 
@@ -444,8 +465,8 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #F59E0B; /* Luxe gold */
-            color: #1A1F2B; /* Deeper charcoal */
+            background: #F59E0B;
+            color: #0A1C2B;
             border: none;
             border-radius: 50%;
             width: 35px;
@@ -456,25 +477,15 @@
             font-size: 1rem;
             cursor: pointer;
             opacity: 0;
-            transition: opacity 0.5s ease, background 0.6s ease-out, transform 0.6s ease-out;
+            transition: opacity 0.5s ease, background 0.8s ease-out, transform 0.8s ease-out;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         .scroll-top.show {
             opacity: 1;
         }
         .scroll-top:hover {
-            background: #38BDF8; /* Cyber-blue */
+            background: #1E88E5;
             transform: scale(1.1);
-        }
-
-        /* Particle Effect for Futuristic Vibe */
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
         }
 
         /* Media Queries for Responsiveness */
@@ -484,7 +495,7 @@
             }
             .hero-content {
                 max-width: 85%;
-                padding: 40px 20px;
+                padding: 50px 30px;
             }
             .hero-content h1 {
                 font-size: 1.8rem;
@@ -513,8 +524,7 @@
                 right: 10px;
             }
             .team-card .bio-popup {
-                top: -70px;
-                white-space: normal;
+                top: -90px;
                 width: 200px;
             }
         }
@@ -532,7 +542,7 @@
                 padding: 20px;
             }
             .team-card .bio-popup {
-                top: -60px;
+                top: -80px;
                 width: 180px;
             }
         }
@@ -541,7 +551,10 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">AIVC - Early Stage AI VC</a>
+            <a class="navbar-brand" href="#">
+                <span class="main">AIVC</span>
+                <span class="desc">Early Stage AI VC</span>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -636,17 +649,17 @@
                 <a href="https://www.linkedin.com/in/amit-behl-a80329/" target="_blank" class="team-card">
                     <h3>Amit Behl</h3>
                     <p>Partner</p>
-                    <div class="bio-popup">A career VC with 20+ years of investing experience and several IPO exits.</div>
+                    <div class="bio-popup">Veteran VC with 20+ years, steering startups to IPO glory. Passionate about scaling AI ventures to global impact with a proven track record in tech investments.</div>
                 </a>
                 <a href="https://www.linkedin.com/in/abhay-kumar-sahoo-546748155/" target="_blank" class="team-card">
                     <h3>Abhay Kumar Sahoo</h3>
                     <p>Investment Team Member</p>
-                    <div class="bio-popup">An engineer by education, loves evaluating technology and businesses.</div>
+                    <div class="bio-popup">Engineer-turned-investor from IIT Kharagpur, mastering tech-business synergies. Fuels AI startups with strategic insights, blending academic rigor with industry acumen.</div>
                 </a>
                 <a href="https://www.linkedin.com/in/saanidhya-232874225/" target="_blank" class="team-card">
                     <h3>Saanidhya</h3>
                     <p>Investment Team Member</p>
-                    <div class="bio-popup">An avid learner of new age tech and emerging trends.</div>
+                    <div class="bio-popup">Tech enthusiast tracking AI trends, driving innovative investments. Passionate about emerging tech, shaping the future of VC with a keen eye for disruption.</div>
                 </a>
             </div>
         </div>
@@ -730,8 +743,8 @@
         // Particle Effect Initialization
         particlesJS('particles-js', {
             particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: ['#FFFFFF', '#38BDF8', '#F59E0B'] },
+                number: { value: 120, density: { enable: true, value_area: 800 } },
+                color: { value: ['#FFFFFF', '#1E88E5', '#F59E0B'] },
                 shape: { type: 'circle' },
                 opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1 } },
                 size: { value: 3, random: true, anim: { enable: false } },
