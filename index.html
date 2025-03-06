@@ -10,8 +10,8 @@
     <style>
         /* General Styles */
         body {
-            background: #ffffff;
-            color: #2c3e50;
+            background: #F5F5F5; /* Light grey background */
+            color: #1A2A44; /* Navy text */
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             margin: 0;
@@ -20,7 +20,7 @@
 
         /* Navbar */
         .navbar {
-            background: linear-gradient(135deg, #2c3e50, #4a90e2);
+            background: #1A2A44; /* Dark navy background */
             padding: 20px 0;
             position: fixed;
             width: 100%;
@@ -31,16 +31,16 @@
         .navbar-brand {
             font-size: 1.5rem;
             font-weight: 800;
-            color: #ffffff;
+            color: #FFFFFF; /* White text */
             letter-spacing: 1px;
             transition: color 0.3s ease, transform 0.3s ease;
         }
         .navbar-brand:hover {
-            color: #d3d3d3;
+            color: #00C1B2; /* Teal on hover */
             transform: scale(1.05);
         }
         .navbar-nav .nav-link {
-            color: #ffffff;
+            color: #FFFFFF; /* White text */
             font-size: 0.9rem;
             font-weight: 600;
             padding: 10px 20px;
@@ -49,33 +49,33 @@
             transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
         .navbar-nav .nav-link:hover {
-            background: #ffffff;
-            color: #1e90ff; /* Professional blue for text on hover */
+            background: #FFFFFF; /* White background on hover */
+            color: #00C1B2; /* Teal text on hover */
             transform: translateY(-2px);
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Glow effect */
             border-radius: 5px;
         }
         .navbar-nav .nav-link i {
             margin-right: 5px;
-            color: #ffffff;
+            color: #FFFFFF; /* White icons */
             transition: color 0.3s ease;
         }
         .navbar-nav .nav-link:hover i {
-            color: #1e90ff; /* Blue for icons on hover */
+            color: #00C1B2; /* Teal icons on hover */
         }
 
         /* Hero Carousel */
         .hero {
             min-height: 100vh;
             position: relative;
-            background: linear-gradient(135deg, #ffffff, #f5f5f5); /* Cleaner white-grey gradient */
+            background: linear-gradient(135deg, #F5F5F5, #FFFFFF); /* Light grey to white gradient */
             padding-top: 80px;
         }
         .carousel-fade .carousel-item {
             height: 100vh;
             opacity: 0;
             transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-            background: linear-gradient(135deg, rgba(44, 62, 80, 0.7), rgba(74, 144, 226, 0.5));
+            background: linear-gradient(135deg, rgba(26, 42, 68, 0.7), rgba(0, 193, 178, 0.5)); /* Dark navy to teal gradient */
             transform: scale(0.98);
         }
         .carousel-fade .carousel-item.active {
@@ -89,11 +89,11 @@
             text-align: center;
         }
         .hero-content {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(211, 211, 211, 0.1));
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(245, 245, 245, 0.1));
             backdrop-filter: blur(25px);
             padding: 40px;
             border-radius: 15px;
-            border: 1px solid rgba(44, 62, 80, 0.3);
+            border: 1px solid rgba(26, 42, 68, 0.3);
             max-width: 600px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(245, 246, 245, 0.3);
             position: relative;
@@ -111,7 +111,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(74, 144, 226, 0.2) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0, 193, 178, 0.2) 0%, transparent 70%); /* Teal reflection */
             transform: rotate(45deg);
             pointer-events: none;
             z-index: -1;
@@ -123,19 +123,19 @@
             margin-bottom: 15px;
             letter-spacing: 1.2px;
             text-transform: uppercase;
-            color: #2c3e50; /* Navy blue for professionalism */
+            color: #1A2A44; /* Navy text */
             text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
         }
         .hero p {
             font-size: 1rem;
             margin-bottom: 25px;
-            color: #3a506b; /* Lighter navy for contrast */
+            color: #1A2A44; /* Navy text */
             font-weight: 400;
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
         .btn-custom {
-            background: #333333;
-            color: #ffffff;
+            background: #00C1B2; /* Teal button */
+            color: #FFFFFF; /* White text */
             padding: 12px 35px;
             font-size: 1rem;
             font-weight: 600;
@@ -148,9 +148,9 @@
             justify-content: center;
         }
         .btn-custom:hover {
-            background: #4a90e2;
+            background: #1A2A44; /* Navy on hover */
             transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.6);
+            box-shadow: 0 8px 25px rgba(0, 193, 178, 0.6); /* Teal shadow */
         }
         .btn-custom i {
             margin-right: 8px;
@@ -166,14 +166,14 @@
         /* Sections */
         .section {
             padding: 100px 0;
-            background: #ffffff;
+            background: #F5F5F5; /* Light grey background */
             text-align: center;
         }
         .section h2 {
             font-size: 2rem;
             font-weight: 800;
             margin-bottom: 40px;
-            color: #2c3e50;
+            color: #1A2A44; /* Navy text */
             text-transform: uppercase;
             letter-spacing: 1px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -181,13 +181,13 @@
         }
         .section h2 i {
             margin-right: 10px;
-            color: #4a90e2;
+            color: #00C1B2; /* Teal icons */
         }
         .section h2::after {
             content: '';
             width: 60px;
             height: 3px;
-            background: linear-gradient(to right, transparent, #4a90e2, transparent);
+            background: linear-gradient(to right, transparent, #00C1B2, transparent); /* Teal underline */
             position: absolute;
             bottom: -10px;
             left: 50%;
@@ -197,7 +197,7 @@
             font-size: 1rem;
             max-width: 900px;
             margin: 0 auto 30px;
-            color: #2c3e50;
+            color: #1A2A44; /* Navy text */
             font-weight: 400;
         }
 
@@ -210,9 +210,9 @@
             margin-top: 30px;
         }
         .team-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(211, 211, 211, 0.1));
+            background: linear-gradient(135deg, rgba(245, 245, 245, 0.2), rgba(211, 211, 211, 0.1));
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(44, 62, 80, 0.2);
+            border: 1px solid rgba(26, 42, 68, 0.2);
             border-radius: 15px;
             padding: 20px;
             width: 250px;
@@ -223,22 +223,22 @@
         }
         .team-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(74, 144, 226, 0.4);
+            box-shadow: 0 15px 40px rgba(0, 193, 178, 0.4); /* Teal shadow */
         }
         .team-card h3 a {
             font-size: 1.2rem;
             font-weight: 600;
-            color: #2c3e50;
+            color: #1A2A44; /* Navy text */
             text-decoration: none;
             display: block;
             margin-bottom: 10px;
         }
         .team-card h3 a:hover {
-            color: #4a90e2;
+            color: #00C1B2; /* Teal on hover */
         }
         .team-card p {
             font-size: 0.9rem;
-            color: #4a90e2;
+            color: #00C1B2; /* Teal text */
             margin: 0;
         }
 
@@ -251,9 +251,9 @@
             margin-top: 30px;
         }
         .portfolio-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(211, 211, 211, 0.1));
+            background: linear-gradient(135deg, rgba(245, 245, 245, 0.2), rgba(211, 211, 211, 0.1));
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(44, 62, 80, 0.2);
+            border: 1px solid rgba(26, 42, 68, 0.2);
             border-radius: 15px;
             padding: 20px;
             width: 200px;
@@ -271,7 +271,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), transparent);
+            background: linear-gradient(135deg, rgba(0, 193, 178, 0.1), transparent);
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -280,31 +280,31 @@
         }
         .portfolio-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(74, 144, 226, 0.4);
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(211, 211, 211, 0.2));
+            box-shadow: 0 15px 40px rgba(0, 193, 178, 0.4); /* Teal shadow */
+            background: linear-gradient(135deg, rgba(245, 245, 245, 0.3), rgba(211, 211, 211, 0.2));
         }
         .portfolio-card a {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #2c3e50;
+            color: #1A2A44; /* Navy text */
             text-decoration: none;
             display: block;
             transition: color 0.3s ease;
         }
         .portfolio-card a:hover {
-            color: #4a90e2;
+            color: #00C1B2; /* Teal on hover */
         }
 
         /* Contact Section */
         .address {
             font-size: 1rem;
-            color: #2c3e50;
+            color: #1A2A44; /* Navy text */
             margin: 20px 0;
         }
         .query-box {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(211, 211, 211, 0.1));
+            background: linear-gradient(135deg, rgba(245, 245, 245, 0.2), rgba(211, 211, 211, 0.1));
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(44, 62, 80, 0.2);
+            border: 1px solid rgba(26, 42, 68, 0.2);
             border-radius: 15px;
             padding: 30px;
             max-width: 600px;
@@ -314,7 +314,7 @@
         .query-box label {
             font-size: 1rem;
             font-weight: 600;
-            color: #2c3e50;
+            color: #1A2A44; /* Navy text */
             margin-bottom: 5px;
             display: block;
         }
@@ -322,19 +322,19 @@
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
-            border: 1px solid #4a90e2;
+            border: 1px solid #00C1B2; /* Teal border */
             border-radius: 5px;
             font-size: 0.9rem;
-            color: #2c3e50;
-            background: #ffffff;
+            color: #1A2A44; /* Navy text */
+            background: #FFFFFF;
         }
         .query-box textarea {
             height: 100px;
             resize: none;
         }
         .query-box button {
-            background: #4a90e2;
-            color: #ffffff;
+            background: #00C1B2; /* Teal button */
+            color: #FFFFFF; /* White text */
             padding: 10px 20px;
             font-size: 1rem;
             font-weight: 600;
@@ -343,15 +343,15 @@
             transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
         .query-box button:hover {
-            background: #2c3e50;
+            background: #1A2A44; /* Navy on hover */
             transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(44, 62, 80, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 193, 178, 0.4); /* Teal shadow */
         }
 
         /* Footer */
         footer {
-            background: linear-gradient(135deg, #2c3e50, #4a90e2);
-            color: #ffffff;
+            background: #1A2A44; /* Dark navy background */
+            color: #FFFFFF; /* White text */
             padding: 50px 0;
             text-align: center;
             font-size: 0.9rem;
@@ -364,12 +364,12 @@
 
         /* Links */
         a {
-            color: #4a90e2;
+            color: #00C1B2; /* Teal links */
             text-decoration: none;
             transition: color 0.3s ease, transform 0.3s ease;
         }
         a:hover {
-            color: #2c3e50;
+            color: #1A2A44; /* Navy on hover */
             transform: scale(1.05);
         }
 
