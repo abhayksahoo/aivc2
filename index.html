@@ -5,23 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIVC - AI Venture Capital</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@600;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* General Styles */
+        :root {
+            --bg-light: #F9FAFB;
+            --bg-dark: #0A1C2B;
+            --text-light: #2A2A2A;
+            --text-dark: #FFFFFF;
+            --accent-blue: #1E88E5;
+            --accent-gold: #F59E0B;
+            --muted-silver: #9CA3AF;
+        }
+
+        [data-theme="dark"] {
+            --bg-light: #0A1C2B;
+            --bg-dark: #F9FAFB;
+            --text-light: #FFFFFF;
+            --text-dark: #2A2A2A;
+        }
+
         body {
-            background: #F9FAFB; /* Off-white background */
-            color: #2A2A2A; /* Near-black text */
+            background: var(--bg-light);
+            color: var(--text-light);
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            font-size: 1.125rem; /* 18px */
+            line-height: 1.5; /* 27px */
             margin: 0;
             overflow-x: hidden;
             letter-spacing: 0.5px;
+            transition: all 0.3s ease;
         }
 
         /* Navbar */
         .navbar {
-            background: #0F1419; /* Deeper charcoal */
+            background: #0F1419;
             padding: 30px 0;
             position: fixed;
             width: 100%;
@@ -34,8 +52,8 @@
             opacity: 0.95;
         }
         .navbar-brand {
-            font-family: 'Raleway', sans-serif;
-            color: #FFFFFF;
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-dark);
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -50,44 +68,54 @@
         .navbar-brand span.desc {
             font-size: 0.9rem;
             font-weight: 500;
-            color: #9CA3AF; /* Muted silver */
+            color: var(--muted-silver);
             margin-top: 5px;
         }
         .navbar-brand:hover span.main {
-            color: #F59E0B; /* Luxe gold */
+            color: var(--accent-gold);
         }
         .navbar-nav {
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 40px;
         }
         .navbar-nav .nav-link {
-            color: #FFFFFF;
-            font-size: 0.95rem;
+            color: var(--text-dark);
+            font-size: 1rem;
             font-weight: 500;
             padding: 5px 15px;
             text-transform: uppercase;
             transition: color 0.8s ease-out, border 0.8s ease-out;
         }
         .navbar-nav .nav-link:hover {
-            color: #F59E0B; /* Luxe gold */
-            border-bottom: 2px solid #F59E0B;
+            color: var(--accent-gold);
+            border-bottom: 2px solid var(--accent-gold);
         }
         .navbar-nav .nav-link i {
             margin-right: 5px;
-            color: #FFFFFF;
+            color: var(--text-dark);
             transition: color 0.8s ease-out;
         }
         .navbar-nav .nav-link:hover i {
-            color: #F59E0B;
+            color: var(--accent-gold);
+        }
+        .dark-mode-toggle {
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            transition: color 0.8s ease-out;
+            margin-left: 20px;
+        }
+        .dark-mode-toggle:hover {
+            color: var(--accent-blue);
         }
 
         /* Hero Section */
         .hero {
             min-height: 100vh;
             position: relative;
-            background: linear-gradient(135deg, #0A1C2B, #1E88E5); /* Deep navy to muted cyber-blue */
-            padding-top: 120px; /* Breathing space from navbar */
+            background: linear-gradient(135deg, #0A1C2B, #1E88E5, rgba(245, 158, 11, 0.1));
+            padding-top: 120px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -117,13 +145,13 @@
             position: relative;
         }
         .hero-content {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(209, 213, 219, 0.1));
-            backdrop-filter: blur(20px);
+            background: rgba(10, 28, 43, 0.95);
+            backdrop-filter: blur(15px);
             padding: 100px 50px;
             border-radius: 15px;
             border: 1px solid rgba(209, 213, 219, 0.5);
-            max-width: 500px;
-            color: #FFFFFF;
+            max-width: 550px;
+            color: var(--text-dark);
             position: relative;
             z-index: 10;
             box-shadow: 0 0 20px rgba(30, 136, 229, 0.4);
@@ -134,39 +162,42 @@
             box-shadow: 0 0 30px rgba(30, 136, 229, 0.6);
         }
         .hero-content h1 {
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 25px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            line-height: 2.0;
-            animation: slideIn 1.0s ease-out 0.2s backwards;
+            line-height: 1.5;
+            animation: slideIn 1s ease-out 0.2s backwards;
         }
         .hero-content p {
-            font-size: 0.95rem;
+            font-size: 1.125rem;
             margin-bottom: 30px;
-            color: #9CA3AF;
-            line-height: 1.6;
+            color: var(--muted-silver);
+            line-height: 1.5;
         }
         .btn-custom {
-            background: #F59E0B;
-            color: #0A1C2B;
-            padding: 12px 35px;
-            font-size: 0.95rem;
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+            padding: 15px 40px;
+            font-size: 1rem;
             font-weight: 600;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             text-transform: uppercase;
-            transition: background 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.8s ease-out;
+            transition: all 0.8s ease-out;
             display: flex;
             align-items: center;
             justify-content: center;
+            min-width: 150px;
+            min-height: 50px;
+            box-shadow: 0 0 10px rgba(30, 136, 229, 0.3);
             animation: pulse 2s infinite;
         }
         .btn-custom:hover {
-            background: #1E88E5;
-            transform: scale(1.03);
+            background: var(--accent-gold);
+            transform: scale(1.05) rotateY(10deg);
             box-shadow: 0 0 15px rgba(30, 136, 229, 0.5);
         }
         .btn-custom i {
@@ -184,20 +215,20 @@
             to { opacity: 1; transform: translateX(0); }
         }
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 rgba(245, 158, 11, 0.4); }
-            50% { box-shadow: 0 0 10px rgba(245, 158, 11, 0.6); }
-            100% { box-shadow: 0 0 0 rgba(245, 158, 11, 0.4); }
+            0% { box-shadow: 0 0 0 rgba(30, 136, 229, 0.4); }
+            50% { box-shadow: 0 0 10px rgba(30, 136, 229, 0.6); }
+            100% { box-shadow: 0 0 0 rgba(30, 136, 229, 0.4); }
         }
 
         /* Sections */
         .section {
-            padding: 160px 0;
-            background: #F9FAFB;
+            padding: 120px 0;
+            background: var(--bg-light);
             text-align: center;
             margin: 60px 0;
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 1.0s ease-out, transform 1.0s ease-out;
+            transition: opacity 1s ease-out, transform 1s ease-out;
         }
         .section.visible {
             opacity: 1;
@@ -206,185 +237,205 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 20px;
         }
         .section h2 {
-            font-family: 'Raleway', sans-serif;
-            font-size: 1.8rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
             font-weight: 800;
             margin-bottom: 40px;
-            color: #2A2A2A;
+            color: var(--text-light);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            line-height: 2.0;
-            position: relative;
+            letter-spacing: 2px;
+            line-height: 1.5;
             text-shadow: 0 0 5px rgba(245, 158, 11, 0.2);
+            position: relative;
         }
         .section h2 i {
             margin-right: 10px;
-            color: #F59E0B;
+            color: var(--accent-gold);
         }
         .section h2::after {
             content: '';
             width: 60px;
             height: 2px;
-            background: #F59E0B;
+            background: var(--accent-gold);
             position: absolute;
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
         }
         .section p {
-            font-size: 0.95rem;
+            font-size: 1.125rem;
             max-width: 750px;
             margin: 0 auto 30px;
-            color: #2A2A2A;
-            font-weight: 500;
-            text-align: center;
-            line-height: 1.6;
+            color: var(--text-light);
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        /* About Us Section */
+        .about-points {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        .about-point {
+            max-width: 300px;
+            text-align: left;
+        }
+        .about-point i {
+            color: var(--accent-blue);
+            margin-right: 10px;
         }
 
         /* Portfolio Section */
         .portfolio-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 50px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
             justify-content: center;
             margin-top: 30px;
-            max-width: 1000px;
+            max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
         }
         .portfolio-card {
-            background: #F9FAFB;
-            border: 1px solid #E5E7EB;
+            background: var(--bg-light);
+            border: 1px solid rgba(209, 213, 219, 0.5);
             border-radius: 10px;
             padding: 20px;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: transform 0.8s ease-out, box-shadow 0.8s ease-out, opacity 0.8s ease-out;
+            transition: all 0.8s ease-out;
             text-decoration: none;
+            position: relative;
+            overflow: hidden;
         }
         .portfolio-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px) rotateY(10deg);
             box-shadow: 0 0 15px rgba(30, 136, 229, 0.5);
-            background: linear-gradient(135deg, #1E88E5, #F59E0B);
-            color: #FFFFFF;
         }
         .portfolio-card span {
-            font-family: 'Raleway', sans-serif;
-            font-size: 1.1rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
             font-weight: 600;
-            color: #2A2A2A;
+            color: var(--text-light);
             transition: color 0.8s ease-out;
         }
-        .portfolio-container .portfolio-card:hover ~ .portfolio-card {
-            opacity: 0.4;
+        .portfolio-card:hover span {
+            color: var(--text-dark);
         }
-        .portfolio-container .portfolio-card:hover span {
-            color: #FFFFFF;
+        @media (max-width: 768px) {
+            .portfolio-container {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Team Section */
         .team-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 50px;
-            justify-content: center;
-            margin-top: 30px;
-            position: relative;
+            display: flex;
+            gap: 40px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .team-container::-webkit-scrollbar {
+            display: none;
         }
         .team-card {
-            background: #F9FAFB;
-            border: 1px solid #E5E7EB;
+            background: var(--bg-light);
+            border: 1px solid rgba(209, 213, 219, 0.5);
             border-radius: 10px;
             padding: 20px;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: transform 0.8s ease-out, box-shadow 0.8s ease-out;
-            text-decoration: none;
+            transition: all 0.8s ease-out;
+            min-width: 180px;
+            flex-shrink: 0;
             position: relative;
         }
         .team-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px) rotateY(10deg);
             box-shadow: 0 0 15px rgba(30, 136, 229, 0.5);
         }
         .team-card h3 {
-            font-family: 'Raleway', sans-serif;
-            font-size: 1.1rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
             font-weight: 600;
-            color: #2A2A2A;
+            color: var(--text-light);
             margin-bottom: 10px;
             transition: color 0.8s ease-out;
         }
         .team-card:hover h3 {
-            color: #F59E0B;
+            color: var(--accent-gold);
         }
         .team-card p {
-            font-size: 0.8rem;
-            color: #9CA3AF;
+            font-size: 0.875rem;
+            color: var(--muted-silver);
             margin: 0;
-            text-align: center;
         }
         .team-card .bio-popup {
             display: none;
-            position: absolute;
-            top: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #0A1C2B, #1E88E5);
-            color: #FFFFFF;
-            padding: 15px;
-            border: 2px solid #F59E0B;
-            border-radius: 10px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 70vw;
+            min-height: 80vh;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(30, 136, 229, 0.1));
+            color: var(--text-dark);
+            padding: 30px;
+            border-left: 2px solid var(--accent-gold);
+            border-radius: 10px 0 0 10px;
             box-shadow: 0 0 15px rgba(30, 136, 229, 0.3);
-            font-size: 0.8rem;
-            width: 250px;
-            min-height: 80px;
-            z-index: 100;
-            animation: fadeIn 0.4s ease-out, pulseBorder 2s infinite;
+            font-size: 1rem;
+            z-index: 1000;
+            animation: fadeIn 0.4s ease-out;
+        }
+        @media (max-width: 768px) {
+            .team-card .bio-popup {
+                width: 100vw;
+                height: 100vh;
+                top: 0;
+                left: 0;
+                border-radius: 0;
+            }
         }
         .team-card:hover .bio-popup {
             display: block;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes pulseBorder {
-            0% { box-shadow: 0 0 5px #F59E0B; }
-            50% { box-shadow: 0 0 15px #F59E0B; }
-            100% { box-shadow: 0 0 5px #F59E0B; }
-        }
 
         /* Contact Section */
         .contact-text {
-            font-size: 0.95rem;
-            color: #2A2A2A;
+            font-size: 1.125rem;
+            color: var(--text-light);
             margin: 20px auto;
             text-align: center;
         }
         .address {
-            font-size: 0.95rem;
-            color: #2A2A2A;
+            font-size: 1.125rem;
+            color: var(--text-light);
             margin: 20px auto;
             text-align: center;
         }
         .query-box {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(209, 213, 219, 0.1));
-            backdrop-filter: blur(20px);
-            border: 1px solid #D1D5DB;
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(209, 213, 219, 0.5);
+            border-radius: 20px;
             padding: 40px;
-            max-width: 500px;
+            max-width: 600px;
             margin: 30px auto;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
         .query-box label {
-            font-size: 0.95rem;
+            font-size: 1.125rem;
             font-weight: 600;
-            color: #2A2A2A;
+            color: var(--text-light);
             margin-bottom: 15px;
             display: block;
         }
@@ -392,53 +443,56 @@
             width: 100%;
             padding: 12px;
             margin-bottom: 15px;
-            border: 1px solid #D1D5DB;
-            border-radius: 5px;
-            font-size: 0.95rem;
-            color: #2A2A2A;
-            background: #FFFFFF;
+            border: 1px solid rgba(209, 213, 219, 0.5);
+            border-radius: 8px;
+            font-size: 1.125rem;
+            color: var(--text-light);
+            background: var(--bg-dark);
             transition: border-color 0.8s ease-out;
         }
         .query-box input:focus, .query-box textarea:focus {
-            border-color: #F59E0B;
+            border-color: var(--accent-blue);
             outline: none;
         }
         .query-box textarea {
-            height: 120px;
+            height: 150px;
             resize: none;
         }
         .query-box input::placeholder, .query-box textarea::placeholder {
-            color: #9CA3AF;
+            color: var(--muted-silver);
         }
         .query-box button {
-            background: #F59E0B;
-            color: #0A1C2B;
-            padding: 12px 20px;
-            font-size: 0.95rem;
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+            padding: 15px 40px;
+            font-size: 1.125rem;
             font-weight: 600;
             border: none;
-            border-radius: 5px;
-            transition: background 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.8s ease-out;
+            border-radius: 8px;
+            transition: all 0.8s ease-out;
+            min-width: 150px;
+            min-height: 50px;
+            box-shadow: 0 0 10px rgba(30, 136, 229, 0.3);
         }
         .query-box button:hover {
-            background: #1E88E5;
-            transform: scale(1.03);
+            background: var(--accent-gold);
+            transform: scale(1.05) rotateY(10deg);
             box-shadow: 0 0 15px rgba(30, 136, 229, 0.5);
         }
         .query-box .success-message {
             display: none;
-            color: #F59E0B;
-            font-size: 0.95rem;
+            color: var(--accent-gold);
+            font-size: 1.125rem;
             margin-top: 15px;
         }
 
         /* Footer */
         footer {
-            background: #0A1C2B; /* Deep navy */
-            color: #FFFFFF;
+            background: #0A1C2B;
+            color: var(--text-dark);
             padding: 50px 0;
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.875rem;
             box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
         }
         footer p {
@@ -451,12 +505,12 @@
             gap: 20px;
         }
         .social-links a {
-            color: #F59E0B;
+            color: var(--accent-gold);
             font-size: 1.2rem;
-            transition: color 0.8s ease-out, transform 0.8s ease-out;
+            transition: all 0.8s ease-out;
         }
         .social-links a:hover {
-            color: #1E88E5;
+            color: var(--accent-blue);
             transform: scale(1.2);
         }
 
@@ -465,30 +519,30 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #F59E0B;
-            color: #0A1C2B;
+            background: var(--accent-blue);
+            color: var(--bg-dark);
             border: none;
             border-radius: 50%;
-            width: 35px;
-            height: 35px;
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            font-size: 1.2rem;
             cursor: pointer;
             opacity: 0;
-            transition: opacity 0.5s ease, background 0.8s ease-out, transform 0.8s ease-out;
+            transition: all 0.5s ease;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         .scroll-top.show {
             opacity: 1;
         }
         .scroll-top:hover {
-            background: #1E88E5;
-            transform: scale(1.1);
+            background: var(--accent-gold);
+            transform: scale(1.1) rotateY(10deg);
         }
 
-        /* Media Queries for Responsiveness */
+        /* Media Queries */
         @media (max-width: 768px) {
             .hero {
                 padding-top: 80px;
@@ -498,13 +552,13 @@
                 padding: 50px 30px;
             }
             .hero-content h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             .section {
                 padding: 80px 0;
                 margin: 30px 0;
             }
-            .team-container, .portfolio-container {
+            .portfolio-container {
                 grid-template-columns: 1fr;
             }
             .navbar-nav {
@@ -524,26 +578,25 @@
                 right: 10px;
             }
             .team-card .bio-popup {
-                top: -90px;
-                width: 200px;
+                width: 100vw;
+                height: 100vh;
+                top: 0;
+                left: 0;
+                border-radius: 0;
             }
         }
         @media (max-width: 480px) {
-            .hero-content {
-                max-width: 90%;
-            }
             .hero-content h1 {
-                font-size: 1.6rem;
+                font-size: 1.75rem;
             }
             .section h2 {
-                font-size: 1.5rem;
+                font-size: 1.75rem;
             }
             .query-box {
                 padding: 20px;
             }
             .team-card .bio-popup {
-                top: -80px;
-                width: 180px;
+                padding: 20px;
             }
         }
     </style>
@@ -566,31 +619,32 @@
                     <li class="nav-item"><a class="nav-link" href="#team"><i class="fas fa-users"></i> Team</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
                 </ul>
+                <div class="dark-mode-toggle ms-3"><i class="fas fa-moon"></i></div>
             </div>
         </div>
     </nav>
 
     <div class="hero" id="home">
         <div id="particles-js"></div>
-        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000" data-bs-touch="true">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="hero-content">
-                        <h1>Investing in Future AI Applications</h1>
+                        <h1>INVESTING IN FUTURE AI APPLICATIONS</h1>
                         <p>Empowering startups to redefine industries with cutting-edge technology.</p>
                         <a href="#contact" class="btn btn-custom"><i class="fas fa-arrow-right"></i> Get Started</a>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="hero-content">
-                        <h1>Driving AI Innovation</h1>
+                        <h1>DRIVING AI INNOVATION</h1>
                         <p>Supporting visionaries shaping the future with AI solutions.</p>
                         <a href="#portfolio" class="btn btn-custom"><i class="fas fa-briefcase"></i> Explore Portfolio</a>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="hero-content">
-                        <h1>Scalable Impact</h1>
+                        <h1>SCALABLE IMPACT</h1>
                         <p>Enabling startups to solve global challenges with AI.</p>
                         <a href="#about" class="btn btn-custom"><i class="fas fa-info-circle"></i> Learn More</a>
                     </div>
@@ -609,14 +663,19 @@
 
     <div class="section" id="about">
         <div class="container">
-            <h2><i class="fas fa-info-circle"></i> About Us</h2>
+            <h2><i class="fas fa-info-circle"></i> ABOUT US</h2>
             <p>AIVC is at the forefront of the AI revolution, investing in early-stage startups that harness artificial intelligence to solve global challenges. We specialize in machine learning, natural language processing, and robotics, supporting visionaries who aim to transform healthcare, logistics, and beyond. With strategic capital and a network of industry pioneers, we drive innovation to scale.</p>
+            <div class="about-points">
+                <div class="about-point"><i class="fas fa-brain"></i> <strong style="color: var(--accent-gold);">We invest in AI’s future</strong> with machine learning and robotics expertise.</div>
+                <div class="about-point"><i class="fas fa-robot"></i> <strong style="color: var(--accent-gold);">We drive innovation</strong> for healthcare, logistics, and beyond.</div>
+                <div class="about-point"><i class="fas fa-globe"></i> <strong style="color: var(--accent-gold);">We scale impact</strong> with strategic capital and industry networks.</div>
+            </div>
         </div>
     </div>
 
     <div class="section" id="portfolio">
         <div class="container">
-            <h2><i class="fas fa-briefcase"></i> Our Portfolio</h2>
+            <h2><i class="fas fa-briefcase"></i> OUR PORTFOLIO</h2>
             <p>Discover the transformative AI startups we back.</p>
             <div class="portfolio-container">
                 <a href="https://www.beatoven.ai/" target="_blank" class="portfolio-card">
@@ -643,21 +702,21 @@
 
     <div class="section" id="team">
         <div class="container">
-            <h2><i class="fas fa-users"></i> Our Team</h2>
+            <h2><i class="fas fa-users"></i> OUR TEAM</h2>
             <p>Meet the experts shaping the future of AI investment.</p>
             <div class="team-container">
                 <a href="https://www.linkedin.com/in/amit-behl-a80329/" target="_blank" class="team-card">
-                    <h3>Amit Behl</h3>
+                    <h3>AMIT BEHL</h3>
                     <p>Partner</p>
                     <div class="bio-popup">Veteran VC with 20+ years, steering startups to IPO glory. Passionate about scaling AI ventures to global impact with a proven track record in tech investments.</div>
                 </a>
                 <a href="https://www.linkedin.com/in/abhay-kumar-sahoo-546748155/" target="_blank" class="team-card">
-                    <h3>Abhay Kumar Sahoo</h3>
+                    <h3>ABHAY KUMAR SAHOO</h3>
                     <p>Investment Team Member</p>
                     <div class="bio-popup">Engineer-turned-investor from IIT Kharagpur, mastering tech-business synergies. Fuels AI startups with strategic insights, blending academic rigor with industry acumen.</div>
                 </a>
                 <a href="https://www.linkedin.com/in/saanidhya-232874225/" target="_blank" class="team-card">
-                    <h3>Saanidhya</h3>
+                    <h3>SAANIDHYA</h3>
                     <p>Investment Team Member</p>
                     <div class="bio-popup">Tech enthusiast tracking AI trends, driving innovative investments. Passionate about emerging tech, shaping the future of VC with a keen eye for disruption.</div>
                 </a>
@@ -667,7 +726,7 @@
 
     <div class="section" id="contact">
         <div class="container">
-            <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+            <h2><i class="fas fa-envelope"></i> CONTACT US</h2>
             <p class="contact-text">Reach out: <a href="mailto:info@aivc.com"><i class="fas fa-paper-plane"></i> info@aivc.com</a></p>
             <div class="address">
                 <p><i class="fas fa-map-marker-alt"></i> Sector 132, Noida, Uttar Pradesh, India</p>
@@ -740,16 +799,24 @@
             observer.observe(section);
         });
 
+        // Parallax Effect for Hero
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            hero.style.backgroundPositionY = `${-scrollPosition * 0.3}px`;
+        });
+
         // Particle Effect Initialization
         particlesJS('particles-js', {
             particles: {
-                number: { value: 120, density: { enable: true, value_area: 800 } },
+                number: { value: 150, density: { enable: true, value_area: 800 } },
                 color: { value: ['#FFFFFF', '#1E88E5', '#F59E0B'] },
                 shape: { type: 'circle' },
                 opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1 } },
                 size: { value: 3, random: true, anim: { enable: false } },
                 line_linked: { enable: false },
-                move: { enable: true, speed: 2, direction: 'none', random: true, straight: false, out_mode: 'out' }
+                move: { enable: true, speed: 2, direction: 'none', random: true, straight: false, out_mode: 'out' },
+                box-shadow: '0 0 5px rgba(30, 136, 229, 0.5)'
             },
             interactivity: {
                 detect_on: 'canvas',
@@ -757,6 +824,12 @@
                 modes: { grab: { distance: 400, line_linked: { opacity: 0.5 } } }
             },
             retina_detect: true
+        });
+
+        // Dark Mode Toggle
+        const toggle = document.querySelector('.dark-mode-toggle');
+        toggle.addEventListener('click', () => {
+            document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
         });
 
         // Query Form Submission Feedback
@@ -780,4 +853,3 @@
     </script>
 </body>
 </html>
-
