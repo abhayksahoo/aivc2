@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIVC - AI Venture Capital</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         /* General Styles */
         body {
-            background: #FAFAFA; /* Off-white background */
+            background: #F9FAFB; /* Off-white background */
             color: #2A2A2A; /* Near-black text */
             font-family: 'Inter', sans-serif;
-            line-height: 1.8; /* Improved readability */
+            line-height: 1.8;
             margin: 0;
             overflow-x: hidden;
             letter-spacing: 0.5px;
@@ -21,53 +21,45 @@
 
         /* Navbar */
         .navbar {
-            background: #1F2526; /* Charcoal grey */
-            padding: 20px 0;
+            background: #1A202C; /* Deep charcoal */
+            padding: 25px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: opacity 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.5s ease;
         }
         .navbar.scrolled {
             opacity: 0.95;
         }
         .navbar-brand {
-            font-size: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6rem;
             font-weight: 800;
-            color: #FFFFFF; /* White text */
+            color: #FFFFFF;
             letter-spacing: 1px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             transition: color 0.5s ease;
         }
         .navbar-brand:hover {
-            color: #D4AF37; /* Muted gold on hover */
-        }
-        .navbar-brand .tagline {
-            font-size: 0.7rem;
-            font-weight: 500;
-            color: #D4AF37; /* Muted gold */
-            margin-top: 5px;
+            color: #EAB308; /* Refined gold */
         }
         .navbar-nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 30px;
         }
         .navbar-nav .nav-link {
-            color: #FFFFFF; /* White text */
-            font-size: 0.9rem;
+            color: #FFFFFF;
+            font-size: 0.95rem;
             font-weight: 500;
-            padding: 15px 30px; /* Spacious padding */
+            padding: 5px 15px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: color 0.5s ease, border-bottom 0.5s ease;
+            transition: color 0.5s ease, border 0.5s ease;
         }
         .navbar-nav .nav-link:hover {
-            color: #D4AF37; /* Muted gold on hover */
-            border-bottom: 2px solid #D4AF37; /* Underline effect */
+            color: #EAB308; /* Refined gold */
+            border-bottom: 2px solid #EAB308;
         }
         .navbar-nav .nav-link i {
             margin-right: 5px;
@@ -75,71 +67,65 @@
             transition: color 0.5s ease;
         }
         .navbar-nav .nav-link:hover i {
-            color: #D4AF37;
+            color: #EAB308;
         }
 
-        /* Hero Carousel */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             position: relative;
-            background: linear-gradient(135deg, #FAFAFA, #F5F5F5); /* Off-white to light grey */
+            background: linear-gradient(135deg, #1A202C, #4B5563); /* Deep charcoal to muted silver */
             padding-top: 80px;
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
         }
-        .carousel-fade .carousel-item {
-            height: 100vh;
-            opacity: 0;
-            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
-            background: linear-gradient(135deg, rgba(31, 37, 38, 0.7), rgba(212, 175, 55, 0.3));
-            transform: scale(0.98);
+        #heroCarousel {
+            width: 100%;
+            height: 100%;
         }
-        .carousel-fade .carousel-item.active {
-            opacity: 1;
-            transform: scale(1.02);
+        .carousel-inner {
+            height: 100%;
         }
         .carousel-item {
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
         }
         .hero-content {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(245, 245, 245, 0.05));
-            backdrop-filter: blur(10px); /* Subtle glass effect */
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px); /* Frosted glass */
             padding: 40px;
             border-radius: 15px;
-            border: 1px solid #E5E7EB; /* Light grey border */
+            border: 1px solid rgba(209, 213, 219, 0.5); /* Muted silver */
             max-width: 450px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            color: #FFFFFF;
             position: relative;
             z-index: 10;
-            transition: transform 0.5s ease;
+            animation: fadeInUp 1.5s ease-out;
         }
-        .hero-content:hover {
-            transform: scale(1.03);
-        }
-        .hero h1 {
-            font-size: 2rem; /* Refined size */
+        .hero-content h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
             font-weight: 800;
             margin-bottom: 15px;
             letter-spacing: 1.2px;
             text-transform: uppercase;
-            color: #2A2A2A; /* Near-black */
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            animation: slideIn 1.5s ease-out;
         }
-        .hero p {
-            font-size: 0.9rem;
+        .hero-content p {
+            font-size: 0.95rem;
             margin-bottom: 20px;
-            color: #6B7280; /* Muted grey */
-            font-weight: 400;
+            color: #D1D5DB; /* Muted silver */
         }
         .btn-custom {
-            background: #D4AF37; /* Muted gold */
-            color: #1F2526; /* Charcoal grey text */
+            background: #EAB308; /* Refined gold */
+            color: #1A202C; /* Deep charcoal */
             padding: 12px 35px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 600;
             border: none;
             border-radius: 5px;
@@ -150,12 +136,35 @@
             justify-content: center;
         }
         .btn-custom:hover {
-            background: #B89729; /* Darker gold */
+            background: #D97706; /* Darker gold */
             transform: scale(1.03);
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); /* Subtle glow */
+            box-shadow: 0 0 10px rgba(234, 179, 8, 0.3);
         }
         .btn-custom i {
             margin-right: 8px;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(26, 32, 44, 0.8), rgba(75, 85, 99, 0.6));
+            z-index: 1;
+            animation: gradientShift 8s infinite alternate;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes gradientShift {
+            0% { background: linear-gradient(45deg, rgba(26, 32, 44, 0.8), rgba(75, 85, 99, 0.6)); }
+            100% { background: linear-gradient(45deg, rgba(75, 85, 99, 0.6), rgba(26, 32, 44, 0.8)); }
         }
         .carousel-control-prev, .carousel-control-next {
             opacity: 0.4;
@@ -167,10 +176,10 @@
 
         /* Sections */
         .section {
-            padding: 120px 0; /* Spacious padding */
-            background: #FAFAFA; /* Off-white */
+            padding: 120px 0;
+            background: #F9FAFB;
             text-align: center;
-            margin: 40px 0; /* Consistent spacing */
+            margin: 40px 0;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.8s ease, transform 0.8s ease;
@@ -179,25 +188,30 @@
             opacity: 1;
             transform: translateY(0);
         }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
         .section h2 {
-            font-size: 1.6rem; /* Refined size */
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6rem;
             font-weight: 800;
             margin-bottom: 40px;
-            color: #2A2A2A; /* Near-black */
+            color: #2A2A2A;
             text-transform: uppercase;
             letter-spacing: 1px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             position: relative;
         }
         .section h2 i {
             margin-right: 10px;
-            color: #D4AF37; /* Muted gold */
+            color: #EAB308; /* Refined gold */
         }
         .section h2::after {
             content: '';
             width: 60px;
-            height: 3px;
-            background: linear-gradient(to right, transparent, #D4AF37, transparent); /* Muted gold underline */
+            height: 2px;
+            background: #EAB308; /* Refined gold */
             position: absolute;
             bottom: -10px;
             left: 50%;
@@ -205,100 +219,103 @@
         }
         .section p {
             font-size: 0.9rem;
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto 30px;
-            color: #2A2A2A; /* Near-black */
+            color: #2A2A2A;
             font-weight: 400;
-            text-align: left; /* Left-aligned for readability */
+            text-align: left;
         }
 
         /* Team Section */
         .team-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 50px; /* Consistent spacing */
+            gap: 50px;
             justify-content: center;
             margin-top: 30px;
         }
         .team-card {
-            background: #FAFAFA; /* Solid off-white */
-            border: 1px solid #E5E7EB; /* Light grey border */
+            background: #F9FAFB;
+            border: 1px solid #E5E7EB;
             border-radius: 10px;
             padding: 20px;
-            width: 180px; /* Refined width */
             text-align: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: transform 0.5s ease, border 0.5s ease, box-shadow 0.5s ease;
-            display: block;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
             text-decoration: none;
         }
         .team-card:hover {
             transform: translateY(-3px);
-            border: 1px solid #D4AF37; /* Muted gold border */
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 16px rgba(234, 179, 8, 0.1);
         }
         .team-card h3 {
+            font-family: 'Poppins', sans-serif;
             font-size: 1.1rem;
             font-weight: 600;
-            color: #2A2A2A; /* Near-black */
+            color: #2A2A2A;
             margin-bottom: 10px;
             transition: color 0.5s ease;
         }
         .team-card:hover h3 {
-            color: #D4AF37; /* Muted gold on hover */
+            color: #EAB308; /* Refined gold */
         }
         .team-card p {
             font-size: 0.8rem;
-            color: #6B7280; /* Muted grey */
+            color: #6B7280; /* Muted silver */
             margin: 0;
+            text-align: center; /* Centered designation */
         }
 
         /* Portfolio Section */
         .portfolio-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 50px; /* Consistent spacing */
+            gap: 50px;
             justify-content: center;
             margin-top: 30px;
         }
         .portfolio-card {
-            background: #FAFAFA; /* Solid off-white */
-            border: 1px solid #E5E7EB; /* Light grey border */
+            background: #F9FAFB;
+            border: 1px solid #E5E7EB;
             border-radius: 10px;
             padding: 20px;
-            width: 180px; /* Refined width */
             text-align: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: transform 0.5s ease, border 0.5s ease, box-shadow 0.5s ease;
-            display: block;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
             text-decoration: none;
         }
         .portfolio-card:hover {
             transform: translateY(-3px);
-            border: 1px solid #D4AF37; /* Muted gold border */
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 16px rgba(234, 179, 8, 0.1);
         }
         .portfolio-card span {
+            font-family: 'Poppins', sans-serif;
             font-size: 1.1rem;
             font-weight: 600;
-            color: #2A2A2A; /* Near-black */
+            color: #2A2A2A;
             transition: color 0.5s ease;
         }
         .portfolio-card:hover span {
-            color: #D4AF37; /* Muted gold on hover */
+            color: #EAB308; /* Refined gold */
         }
 
         /* Contact Section */
+        .contact-text {
+            font-size: 0.9rem;
+            color: #2A2A2A;
+            margin: 20px auto;
+            text-align: center;
+        }
         .address {
             font-size: 0.9rem;
-            color: #2A2A2A; /* Near-black */
+            color: #2A2A2A;
             margin: 20px auto;
             text-align: center;
         }
         .query-box {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(245, 245, 245, 0.05));
-            backdrop-filter: blur(10px); /* Subtle glass effect */
-            border: 1px solid #E5E7EB; /* Light grey border */
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px); /* Frosted glass */
+            border: 1px solid #D1D5DB; /* Muted silver */
             border-radius: 15px;
             padding: 30px;
             max-width: 500px;
@@ -308,7 +325,7 @@
         .query-box label {
             font-size: 0.9rem;
             font-weight: 600;
-            color: #2A2A2A; /* Near-black */
+            color: #2A2A2A;
             margin-bottom: 10px;
             display: block;
         }
@@ -316,7 +333,7 @@
             width: 100%;
             padding: 12px;
             margin-bottom: 15px;
-            border: 1px solid #E5E7EB; /* Light grey border */
+            border: 1px solid #D1D5DB; /* Muted silver */
             border-radius: 5px;
             font-size: 0.9rem;
             color: #2A2A2A;
@@ -324,7 +341,7 @@
             transition: border-color 0.5s ease;
         }
         .query-box input:focus, .query-box textarea:focus {
-            border-color: #D4AF37; /* Muted gold on focus */
+            border-color: #EAB308; /* Refined gold */
             outline: none;
         }
         .query-box textarea {
@@ -332,11 +349,11 @@
             resize: none;
         }
         .query-box input::placeholder, .query-box textarea::placeholder {
-            color: #2A2A2A; /* Charcoal grey placeholder */
+            color: #6B7280; /* Muted silver */
         }
         .query-box button {
-            background: #D4AF37; /* Muted gold */
-            color: #1F2526; /* Charcoal grey text */
+            background: #EAB308; /* Refined gold */
+            color: #1A202C; /* Deep charcoal */
             padding: 12px 20px;
             font-size: 0.9rem;
             font-weight: 600;
@@ -345,13 +362,13 @@
             transition: background 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
         }
         .query-box button:hover {
-            background: #B89729; /* Darker gold */
+            background: #D97706; /* Darker gold */
             transform: scale(1.03);
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 10px rgba(234, 179, 8, 0.3);
         }
         .query-box .success-message {
             display: none;
-            color: #D4AF37; /* Muted gold */
+            color: #EAB308; /* Refined gold */
             font-size: 0.9rem;
             margin-top: 10px;
             text-align: center;
@@ -359,8 +376,8 @@
 
         /* Footer */
         footer {
-            background: #1F2526; /* Charcoal grey */
-            color: #FFFFFF; /* White text */
+            background: #1A202C; /* Deep charcoal */
+            color: #FFFFFF;
             padding: 50px 0;
             text-align: center;
             font-size: 0.8rem;
@@ -370,14 +387,18 @@
             margin: 0 0 15px 0;
             font-weight: 400;
         }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
         .social-links a {
-            color: #D4AF37; /* Muted gold */
-            margin: 0 10px;
+            color: #EAB308; /* Refined gold */
             font-size: 1.2rem;
             transition: color 0.5s ease, transform 0.5s ease;
         }
         .social-links a:hover {
-            color: #FFFFFF; /* White on hover */
+            color: #FFFFFF;
             transform: scale(1.2);
         }
 
@@ -386,8 +407,8 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #D4AF37; /* Muted gold */
-            color: #1F2526; /* Charcoal grey */
+            background: #EAB308; /* Refined gold */
+            color: #1A202C; /* Deep charcoal */
             border: none;
             border-radius: 50%;
             width: 35px;
@@ -405,18 +426,8 @@
             opacity: 1;
         }
         .scroll-top:hover {
-            background: #B89729; /* Darker gold */
+            background: #D97706; /* Darker gold */
             transform: scale(1.1);
-        }
-
-        /* Links */
-        a {
-            color: #D4AF37; /* Muted gold */
-            text-decoration: none;
-            transition: color 0.5s ease;
-        }
-        a:hover {
-            color: #2A2A2A; /* Near-black on hover */
         }
 
         /* Media Queries for Responsiveness */
@@ -428,19 +439,23 @@
                 max-width: 85%;
                 padding: 20px;
             }
-            .hero h1 {
-                font-size: 1.6rem;
+            .hero-content h1 {
+                font-size: 1.8rem;
             }
             .section {
                 padding: 80px 0;
                 margin: 20px 0;
             }
-            .team-card, .portfolio-card {
-                width: 100%;
-                margin-bottom: 15px;
+            .team-container, .portfolio-container {
+                grid-template-columns: 1fr;
+            }
+            .navbar-nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
             }
             .navbar-nav .nav-link {
-                padding: 10px 15px;
+                padding: 10px;
             }
             .query-box {
                 padding: 20px;
@@ -455,7 +470,7 @@
             .hero-content {
                 max-width: 95%;
             }
-            .hero h1 {
+            .hero-content h1 {
                 font-size: 1.6rem;
             }
             .section h2 {
@@ -467,10 +482,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <span>AIVC</span>
-                <span class="tagline">Empowering AI Innovation</span>
-            </a>
+            <a class="navbar-brand" href="#">AIVC</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -490,38 +502,24 @@
         <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div class="container hero-content">
-                        <h1>Investing in the next generation of AI applications</h1>
-                        <p>Backing groundbreaking AI startups with vision and scale.</p>
-                        <a href="#contact" class="btn btn-custom"><i class="fas fa-arrow-right"></i> Get in Touch</a>
+                    <div class="hero-content">
+                        <h1>Investing in the Future of AI</h1>
+                        <p>Empowering startups to redefine industries with cutting-edge technology.</p>
+                        <a href="#contact" class="btn btn-custom"><i class="fas fa-arrow-right"></i> Get Started</a>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="container hero-content">
-                        <h1>AI Innovation</h1>
-                        <p>Supporting visionaries redefining industries with AI.</p>
+                    <div class="hero-content">
+                        <h1>Driving AI Innovation</h1>
+                        <p>Supporting visionaries shaping the future with AI solutions.</p>
                         <a href="#portfolio" class="btn btn-custom"><i class="fas fa-briefcase"></i> Explore Portfolio</a>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="container hero-content">
+                    <div class="hero-content">
                         <h1>Scalable Impact</h1>
-                        <p>Empowering startups to solve global challenges.</p>
+                        <p>Enabling startups to solve global challenges with AI.</p>
                         <a href="#about" class="btn btn-custom"><i class="fas fa-info-circle"></i> Learn More</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="container hero-content">
-                        <h1>Expert Network</h1>
-                        <p>Connecting founders with AI pioneers.</p>
-                        <a href="#team" class="btn btn-custom"><i class="fas fa-users"></i> Meet the Team</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="container hero-content">
-                        <h1>Future Ready</h1>
-                        <p>Driving the next wave of tech breakthroughs.</p>
-                        <a href="#contact" class="btn btn-custom"><i class="fas fa-handshake"></i> Join Us</a>
                     </div>
                 </div>
             </div>
@@ -539,14 +537,14 @@
     <div class="section" id="about">
         <div class="container">
             <h2><i class="fas fa-info-circle"></i> About Us</h2>
-            <p>AIVC is dedicated to propelling the AI frontier by investing in early-stage startups that leverage artificial intelligence to solve real-world problems. We focus on founders pushing boundaries in machine learning, natural language processing, and robotics—fields poised to revolutionize healthcare, logistics, and more. With capital, strategic guidance, and a network of AI pioneers, we empower innovators to scale their visions into market leaders.</p>
+            <p>AIVC is at the forefront of the AI revolution, investing in early-stage startups that harness artificial intelligence to solve global challenges. We specialize in machine learning, natural language processing, and robotics, supporting visionaries who aim to transform healthcare, logistics, and beyond. With strategic capital and a network of industry pioneers, we drive innovation to scale.</p>
         </div>
     </div>
 
     <div class="section" id="portfolio">
         <div class="container">
             <h2><i class="fas fa-briefcase"></i> Our Portfolio</h2>
-            <p>Explore the innovative AI startups we’re proud to support.</p>
+            <p>Discover the transformative AI startups we back.</p>
             <div class="portfolio-container">
                 <a href="https://www.beatoven.ai/" target="_blank" class="portfolio-card">
                     <span>Beatoven</span>
@@ -573,7 +571,7 @@
     <div class="section" id="team">
         <div class="container">
             <h2><i class="fas fa-users"></i> Our Team</h2>
-            <p>Meet the experts driving AIVC’s mission forward.</p>
+            <p>Meet the experts shaping the future of AI investment.</p>
             <div class="team-container">
                 <a href="https://www.linkedin.com/in/amit-behl-a80329/" target="_blank" class="team-card">
                     <h3>Amit Behl</h3>
@@ -594,9 +592,9 @@
     <div class="section" id="contact">
         <div class="container">
             <h2><i class="fas fa-envelope"></i> Contact Us</h2>
-            <p class="contact-text">Reach out to us at: <a href="mailto:info@aivc.com"><i class="fas fa-paper-plane"></i> info@aivc.com</a></p>
+            <p class="contact-text">Reach out: <a href="mailto:info@aivc.com"><i class="fas fa-paper-plane"></i> info@aivc.com</a></p>
             <div class="address">
-                <p><i class="fas fa-map-marker-alt"></i> Office Address: Sector 132, Noida, Uttar Pradesh, India</p>
+                <p><i class="fas fa-map-marker-alt"></i> Sector 132, Noida, Uttar Pradesh, India</p>
             </div>
             <div class="query-box">
                 <form id="queryForm" action="https://formspree.io/f/your-id" method="post">
