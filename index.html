@@ -55,6 +55,11 @@
         }
         .navbar-nav .nav-link i {
             margin-right: 5px;
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+        .navbar-nav .nav-link:hover i {
+            color: #d3d3d3;
         }
 
         /* Hero Carousel */
@@ -67,11 +72,13 @@
         .carousel-fade .carousel-item {
             height: 100vh;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
             background: linear-gradient(135deg, rgba(44, 62, 80, 0.8), rgba(74, 144, 226, 0.6));
+            transform: scale(0.98);
         }
         .carousel-fade .carousel-item.active {
             opacity: 1;
+            transform: scale(1);
         }
         .carousel-item {
             display: flex;
@@ -105,7 +112,7 @@
             animation: shine 6s infinite ease-in-out;
         }
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 2.5rem; /* Reduced from 3.5rem */
             font-weight: 800;
             margin-bottom: 20px;
             letter-spacing: 1.5px;
@@ -114,7 +121,7 @@
             text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1rem; /* Reduced from 1.2rem */
             margin-bottom: 30px;
             color: #333333;
             font-weight: 400;
@@ -211,16 +218,70 @@
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(74, 144, 226, 0.4);
         }
-        .team-card h3 {
+        .team-card h3 a {
             font-size: 1.2rem;
             font-weight: 600;
             color: #2c3e50;
-            margin-bottom: 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .team-card h3 a:hover {
+            color: #4a90e2;
         }
         .team-card p {
             font-size: 0.9rem;
             color: #4a90e2;
             margin: 0;
+        }
+
+        /* Portfolio Section */
+        .portfolio-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .portfolio-card {
+            background: #ffffff;
+            border: 1px solid rgba(44, 62, 80, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .portfolio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .portfolio-card:hover::before {
+            opacity: 1;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(74, 144, 226, 0.4);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(211, 211, 211, 0.7));
+        }
+        .portfolio-card a {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .portfolio-card a:hover {
+            color: #4a90e2;
         }
 
         /* Contact Section */
@@ -333,7 +394,7 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="container hero-content">
-                        <h1>Investing in the Future of AI</h1>
+                        <h1>Investing in the next generation of AI applications</h1>
                         <p>Backing groundbreaking AI startups with vision and scale.</p>
                         <a href="#contact" class="btn btn-custom"><i class="fas fa-arrow-right"></i> Get in Touch</a>
                     </div>
@@ -387,8 +448,28 @@
 
     <div class="section" id="portfolio">
         <div class="container">
-            <h2><i class="fas fa-briefcase"></i> Portfolio</h2>
-            <p>Explore the AI startups we’re proud to support. [Coming Soon]</p>
+            <h2><i class="fas fa-briefcase"></i> Our Portfolio</h2>
+            <p>Explore the innovative AI startups we’re proud to support.</p>
+            <div class="portfolio-container">
+                <div class="portfolio-card">
+                    <a href="https://www.beatoven.ai/" target="_blank">Beatoven</a>
+                </div>
+                <div class="portfolio-card">
+                    <a href="https://www.supermoney.in/#/" target="_blank">Supermoney</a>
+                </div>
+                <div class="portfolio-card">
+                    <a href="https://www.blubirch.com/" target="_blank">Blubirch</a>
+                </div>
+                <div class="portfolio-card">
+                    <a href="https://metamorphtech.com/" target="_blank">Metamorphosys</a>
+                </div>
+                <div class="portfolio-card">
+                    <a href="https://www.botsync.co/" target="_blank">Botsync</a>
+                </div>
+                <div class="portfolio-card">
+                    <a href="https://www.sytolab.com/" target="_blank">Sytolab</a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -398,15 +479,15 @@
             <p>Meet the experts driving AIVC’s mission forward.</p>
             <div class="team-container">
                 <div class="team-card">
-                    <h3>Amit Behl</h3>
+                    <h3><a href="https://www.linkedin.com/in/amit-behl-a80329/" target="_blank">Amit Behl</a></h3>
                     <p>Partner</p>
                 </div>
                 <div class="team-card">
-                    <h3>Abhay Kumar Sahoo</h3>
+                    <h3><a href="https://www.linkedin.com/in/abhay-kumar-sahoo-546748155/" target="_blank">Abhay Kumar Sahoo</a></h3>
                     <p>Investment Team Member</p>
                 </div>
                 <div class="team-card">
-                    <h3>Saanidhya</h3>
+                    <h3><a href="https://www.linkedin.com/in/saanidhya-232874225/" target="_blank">Saanidhya</a></h3>
                     <p>Investment Team Member</p>
                 </div>
             </div>
