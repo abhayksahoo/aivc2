@@ -87,16 +87,20 @@
             text-align: center;
         }
         .hero-content {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(211, 211, 211, 0.2));
-            backdrop-filter: blur(15px);
-            padding: 60px;
-            border-radius: 20px;
-            border: 1px solid rgba(44, 62, 80, 0.4);
-            max-width: 800px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(245, 246, 245, 0.2);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(211, 211, 211, 0.1));
+            backdrop-filter: blur(25px); /* Increased blur for glass effect */
+            padding: 40px; /* Reduced padding for desktop */
+            border-radius: 15px; /* Sharper edges */
+            border: 1px solid rgba(44, 62, 80, 0.3);
+            max-width: 600px; /* Reduced size for desktop */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(245, 246, 245, 0.3);
             position: relative;
             overflow: hidden;
             z-index: 10;
+            transition: transform 0.3s ease;
+        }
+        .hero-content:hover {
+            transform: scale(1.02);
         }
         .hero-content::before {
             content: '';
@@ -105,24 +109,24 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(74, 144, 226, 0.3) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(74, 144, 226, 0.2) 0%, transparent 70%);
             transform: rotate(45deg);
             pointer-events: none;
             z-index: -1;
             animation: shine 6s infinite ease-in-out;
         }
         .hero h1 {
-            font-size: 2.5rem; /* Reduced from 3.5rem */
+            font-size: 2.5rem;
             font-weight: 800;
-            margin-bottom: 20px;
-            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            letter-spacing: 1.2px;
             text-transform: uppercase;
             color: #000000;
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
         }
         .hero p {
-            font-size: 1rem; /* Reduced from 1.2rem */
-            margin-bottom: 30px;
+            font-size: 1rem;
+            margin-bottom: 25px;
             color: #333333;
             font-weight: 400;
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -204,8 +208,8 @@
             margin-top: 30px;
         }
         .team-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(211, 211, 211, 0.7));
-            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(211, 211, 211, 0.1));
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(44, 62, 80, 0.2);
             border-radius: 15px;
             padding: 20px;
@@ -213,6 +217,7 @@
             text-align: center;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block; /* Ensure the whole card is clickable */
         }
         .team-card:hover {
             transform: translateY(-5px);
@@ -223,7 +228,8 @@
             font-weight: 600;
             color: #2c3e50;
             text-decoration: none;
-            transition: color 0.3s ease;
+            display: block;
+            margin-bottom: 10px;
         }
         .team-card h3 a:hover {
             color: #4a90e2;
@@ -243,7 +249,8 @@
             margin-top: 30px;
         }
         .portfolio-card {
-            background: #ffffff;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(211, 211, 211, 0.1));
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(44, 62, 80, 0.2);
             border-radius: 15px;
             padding: 20px;
@@ -253,6 +260,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: block; /* Ensure the whole card is clickable */
         }
         .portfolio-card::before {
             content: '';
@@ -271,13 +279,14 @@
         .portfolio-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(74, 144, 226, 0.4);
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(211, 211, 211, 0.7));
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(211, 211, 211, 0.2));
         }
         .portfolio-card a {
             font-size: 1.1rem;
             font-weight: 600;
             color: #2c3e50;
             text-decoration: none;
+            display: block;
             transition: color 0.3s ease;
         }
         .portfolio-card a:hover {
@@ -291,8 +300,8 @@
             margin: 20px 0;
         }
         .query-box {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(211, 211, 211, 0.7));
-            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(211, 211, 211, 0.1));
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(44, 62, 80, 0.2);
             border-radius: 15px;
             padding: 30px;
@@ -367,6 +376,18 @@
             0% { transform: rotate(45deg) translate(-20%, -20%); }
             50% { transform: rotate(45deg) translate(20%, 20%); }
             100% { transform: rotate(45deg) translate(-20%, -20%); }
+        }
+
+        /* Media Queries for Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero-content {
+                max-width: 90%; /* Full width on mobile */
+                padding: 30px;
+            }
+            .team-card, .portfolio-card {
+                width: 100%;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
@@ -451,24 +472,24 @@
             <h2><i class="fas fa-briefcase"></i> Our Portfolio</h2>
             <p>Explore the innovative AI startups we’re proud to support.</p>
             <div class="portfolio-container">
-                <div class="portfolio-card">
-                    <a href="https://www.beatoven.ai/" target="_blank">Beatoven</a>
-                </div>
-                <div class="portfolio-card">
-                    <a href="https://www.supermoney.in/#/" target="_blank">Supermoney</a>
-                </div>
-                <div class="portfolio-card">
-                    <a href="https://www.blubirch.com/" target="_blank">Blubirch</a>
-                </div>
-                <div class="portfolio-card">
-                    <a href="https://metamorphtech.com/" target="_blank">Metamorphosys</a>
-                </div>
-                <div class="portfolio-card">
-                    <a href="https://www.botsync.co/" target="_blank">Botsync</a>
-                </div>
-                <div class="portfolio-card">
-                    <a href="https://www.sytolab.com/" target="_blank">Sytolab</a>
-                </div>
+                <a href="https://www.beatoven.ai/" target="_blank" class="portfolio-card">
+                    <span>Beatoven</span>
+                </a>
+                <a href="https://www.supermoney.in/#/" target="_blank" class="portfolio-card">
+                    <span>Supermoney</span>
+                </a>
+                <a href="https://www.blubirch.com/" target="_blank" class="portfolio-card">
+                    <span>Blubirch</span>
+                </a>
+                <a href="https://metamorphtech.com/" target="_blank" class="portfolio-card">
+                    <span>Metamorphosys</span>
+                </a>
+                <a href="https://www.botsync.co/" target="_blank" class="portfolio-card">
+                    <span>Botsync</span>
+                </a>
+                <a href="https://www.sytolab.com/" target="_blank" class="portfolio-card">
+                    <span>Sytolab</span>
+                </a>
             </div>
         </div>
     </div>
@@ -478,18 +499,18 @@
             <h2><i class="fas fa-users"></i> Our Team</h2>
             <p>Meet the experts driving AIVC’s mission forward.</p>
             <div class="team-container">
-                <div class="team-card">
-                    <h3><a href="https://www.linkedin.com/in/amit-behl-a80329/" target="_blank">Amit Behl</a></h3>
+                <a href="https://www.linkedin.com/in/amit-behl-a80329/" target="_blank" class="team-card">
+                    <h3>Amit Behl</h3>
                     <p>Partner</p>
-                </div>
-                <div class="team-card">
-                    <h3><a href="https://www.linkedin.com/in/abhay-kumar-sahoo-546748155/" target="_blank">Abhay Kumar Sahoo</a></h3>
+                </a>
+                <a href="https://www.linkedin.com/in/abhay-kumar-sahoo-546748155/" target="_blank" class="team-card">
+                    <h3>Abhay Kumar Sahoo</h3>
                     <p>Investment Team Member</p>
-                </div>
-                <div class="team-card">
-                    <h3><a href="https://www.linkedin.com/in/saanidhya-232874225/" target="_blank">Saanidhya</a></h3>
+                </a>
+                <a href="https://www.linkedin.com/in/saanidhya-232874225/" target="_blank" class="team-card">
+                    <h3>Saanidhya</h3>
                     <p>Investment Team Member</p>
-                </div>
+                </a>
             </div>
         </div>
     </div>
