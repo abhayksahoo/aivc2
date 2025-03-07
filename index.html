@@ -100,7 +100,6 @@
             padding: 12px 25px;
             border-radius: 30px;
             transition: all 0.3s ease;
-            cursor: pointer;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -111,6 +110,10 @@
             color: #003087;
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
             transform: translateY(-2px);
+        }
+
+        nav a:focus {
+            outline: 2px solid #4A6DBB;
         }
 
         .hamburger {
@@ -136,6 +139,7 @@
         }
 
         .mobile-menu.active {
+            display: flex;
             right: 0;
         }
 
@@ -153,6 +157,15 @@
 
         .mobile-menu a:hover {
             background: #4A6DBB;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
         }
 
         /* Hero Section */
@@ -223,7 +236,6 @@
             text-decoration: none;
             border-radius: 30px;
             transition: all 0.3s ease;
-            cursor: pointer;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -231,14 +243,23 @@
         }
 
         .cta-btn:hover {
-            background: #D3D7E0 amid;
+            background: #D3D7E0;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
             transform: scale(1.05);
+        }
+
+        .cta-btn:focus {
+            outline: 2px solid #4A6DBB;
+        }
+
+        .swiper-pagination {
+            bottom: 20px;
         }
 
         .swiper-pagination-bullet {
             background: #D3D7E0;
             opacity: 0.7;
+            margin: 0 5px;
         }
 
         .swiper-pagination-bullet-active {
@@ -386,6 +407,7 @@
 
         .flip-card-front span:hover {
             color: #4A6DBB;
+            transform: scale(1.1);
             text-shadow: 0 0 5px rgba(74, 109, 187, 0.8);
         }
 
@@ -401,6 +423,10 @@
             height: 100%;
             text-decoration: none;
             color: inherit;
+        }
+
+        .flip-link:focus {
+            outline: 2px solid #4A6DBB;
         }
 
         /* Portfolio Section */
@@ -474,7 +500,7 @@
 
         .contact-form .input-group {
             position: relative;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .contact-form input, .contact-form textarea {
@@ -537,6 +563,10 @@
             transform: scale(1.05);
         }
 
+        .contact-form button:focus {
+            outline: 2px solid #4A6DBB;
+        }
+
         footer p {
             font-size: 16px;
             color: #D3D7E0;
@@ -549,7 +579,6 @@
             margin: 0 20px;
             font-size: 20px;
             transition: all 0.3s ease;
-            cursor: pointer;
         }
 
         footer a:hover {
@@ -557,8 +586,39 @@
             transform: scale(1.2);
         }
 
+        footer a:focus {
+            outline: 2px solid #4A6DBB;
+        }
+
+        /* Scroll to Top Button */
+        #scrollToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #003087;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        #scrollToTop:hover {
+            background: #4A6DBB;
+            transform: scale(1.1);
+        }
+
+        #scrollToTop:focus {
+            outline: 2px solid #fff;
+        }
+
         /* Media Queries */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             header {
                 padding: 15px 20px;
             }
@@ -577,21 +637,45 @@
             .hero {
                 height: 500px;
             }
+            .swiper-slide {
+                padding: 20px;
+            }
             .swiper-slide h1 {
-                font-size: 40px;
+                font-size: 32px;
+                margin-bottom: 15px;
             }
             .swiper-slide p {
-                font-size: 18px;
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+            .cta-btn {
+                padding: 12px 30px;
+                font-size: 16px;
+            }
+            .swiper-pagination {
+                bottom: 10px;
             }
             .about, .team, .portfolio {
                 padding: 80px 20px;
             }
+            .about p {
+                font-size: 18px;
+            }
             h2 {
                 font-size: 36px;
+                margin-bottom: 40px;
             }
-            .team-member:hover .flip-card-inner,
-            .portfolio-item:hover .flip-card-inner {
-                transform: none;
+            .team-grid, .portfolio-grid {
+                gap: 20px;
+            }
+            .contact-form .input-group {
+                margin-bottom: 20px;
+            }
+            footer {
+                padding: 60px 20px;
+            }
+            footer a {
+                margin: 0 15px;
             }
         }
     </style>
@@ -613,6 +697,7 @@
             </nav>
             <div class="hamburger"><i class="fas fa-bars"></i></div>
             <div class="mobile-menu">
+                <div class="close-menu"><i class="fas fa-times"></i></div>
                 <ul>
                     <li><a href="#team"><i class="fas fa-users"></i> Team</a></li>
                     <li><a href="#portfolio"><i class="fas fa-briefcase"></i> Portfolio</a></li>
@@ -810,6 +895,8 @@
         </div>
     </footer>
 
+    <button id="scrollToTop"><i class="fas fa-arrow-up"></i></button>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
@@ -824,13 +911,25 @@
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             header.classList.toggle('scrolled', window.scrollY > 50);
+            const scrollToTop = document.getElementById('scrollToTop');
+            scrollToTop.style.display = window.scrollY > 200 ? 'block' : 'none';
         });
 
         // Hamburger Menu
         const hamburger = document.querySelector('.hamburger');
         const mobileMenu = document.querySelector('.mobile-menu');
+        const closeMenu = document.querySelector('.close-menu');
         hamburger.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
+            mobileMenu.classList.add('active');
+        });
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        // Scroll to Top
+        const scrollToTop = document.getElementById('scrollToTop');
+        scrollToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
         // AOS Initialization
